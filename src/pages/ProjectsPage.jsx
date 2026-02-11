@@ -1,11 +1,12 @@
 import ProjectCard from '../components/ProjectCard';
+import lbwyImage from '../assets/LBWY.png';
 
 function ProjectsPage() {
     const projects = [
         {
             title: "Lost But With You",
             description: "A puzzle platformer in which a dog travels through the underworld in search of his friend.",
-            image: "./assets/LBWY.png",
+            image: lbwyImage,
             technologies: ["Unity", "C#", "Figma", "Adobe"],
             link: "https://eventhorizonschool.itch.io/lost-but-with-you"
         },
