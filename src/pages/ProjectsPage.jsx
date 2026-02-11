@@ -1,28 +1,30 @@
 import ProjectCard from '../components/ProjectCard';
 import lbwyImage from '../assets/LBWY.png';
+import cube from '../assets/CubeInvaders.png';
+import dlac from '../assets/DLnC.png';
 
 function ProjectsPage() {
     const projects = [
         {
             title: "Lost But With You",
-            description: "A puzzle platformer in which a dog travels through the underworld in search of his friend.",
+            description: "Un cane viagga in un mondo spiritico per rincontrare il suo padrone in un 2D puzzle platformer.",
             image: lbwyImage,
             technologies: ["Unity", "C#", "Figma", "Adobe"],
             link: "https://eventhorizonschool.itch.io/lost-but-with-you"
         },
         {
-            title: "Task Manager App",
-            description: "Applicazione per la gestione di task e progetti con drag & drop, filtri avanzati e collaborazione in tempo reale.",
-            image: "https://via.placeholder.com/400x250/2c5282/ffffff?text=Task+Manager",
-            technologies: ["React", "Firebase", "Material-UI"],
-            link: "https://github.com/tuousername/progetto2"
+            title: "Cube Invaders",
+            description: "Proteggi il tuo pianeta cubo di Rubik in questo tower defence spaziale",
+            image: cube,
+            technologies: ["Unity", "C#", "Figma", "Adobe"],
+            link: "https://eventhorizonschool.itch.io/cube-invaders"
         },
         {
-            title: "Weather Dashboard",
-            description: "Dashboard meteo con previsioni dettagliate, grafici interattivi e geolocalizzazione. Dati in tempo reale.",
-            image: "https://via.placeholder.com/400x250/2f855a/ffffff?text=Weather+Dashboard",
-            technologies: ["React", "Chart.js", "OpenWeather API"],
-            link: "https://github.com/tuousername/progetto3"
+            title: "Daemons Love and Carnage",
+            description: "Un demone che diventa una spada, tanti cattivoni da picchiare e una sottotrama amorosa... cosa può andare storto?",
+            image: dlac,
+            technologies: ["Unity", "C#", "Figma", "Adobe"],
+            link: "https://eventhorizonschool.itch.io/daemons-love-and-carnage"
         },
         {
             title: "Social Media Analytics",
@@ -49,10 +51,10 @@ function ProjectsPage() {
 
     return (
         <div className="projects-page">
-            <header className="projects-header">
+            <section className="projects-header">
                 <h1>I Miei Progetti</h1>
                 <p>Una selezione dei miei lavori più recenti e significativi</p>
-            </header>
+            </section>
 
             <div className="projects-grid">
                 {projects.map((project, index) => (
