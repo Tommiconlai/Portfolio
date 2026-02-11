@@ -1,11 +1,12 @@
 function Footer() {
+    const year = new Date().getFullYear();
     return (
         <footer>
             <div className="footer-content">
                 <div className="footer-section">
                     <h3>Contatti</h3>
-                    <p>Email: tuoemail@example.com</p>
-                    <p>Tel: +39 123 456 7890</p>
+                    <p>Email: tomasso.job@gmail.com</p>
+                    <p>Tel: +39 346 9578393</p>
                 </div>
                 <div className="footer-section">
                     <h3>Social</h3>
@@ -15,7 +16,7 @@ function Footer() {
                     </p>
                 </div>
                 <div className="footer-section">
-                    <p>&copy; 2026 Il Tuo Nome. Tutti i diritti riservati.</p>
+                    <p>&copy; {year} Gabriele Tomasso. Tutti i diritti riservati.</p>
                 </div>
             </div>
         </footer>

@@ -1,7 +1,7 @@
 function CVPage() {
     return (
         <div className="cv-page">
-            <header className="cv-header">
+            <section className="cv-header">
                 <h1>Gabriele Tomasso</h1>
                 <p className="cv-subtitle">Developer / UI/UX Designer / Grafico</p>
                 <div className="cv-contact">
@@ -9,7 +9,7 @@ function CVPage() {
                     <span>+39 346 9578393</span>
                     <span>Cinisello Balsamo, Italia</span>
                 </div>
-            </header>
+            </section>
 
             <section className="cv-section">
                 <h2>Profilo</h2>

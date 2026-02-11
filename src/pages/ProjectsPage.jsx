@@ -3,11 +3,11 @@ import ProjectCard from '../components/ProjectCard';
 function ProjectsPage() {
     const projects = [
         {
-            title: "E-Commerce Platform",
-            description: "Piattaforma e-commerce completa con gestione prodotti, carrello e pagamenti. Interfaccia moderna e responsive.",
-            image: "https://via.placeholder.com/400x250/4a5568/ffffff?text=E-Commerce",
-            technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-            link: "https://github.com/tuousername/progetto1"
+            title: "Lost But With You",
+            description: "A puzzle platformer in which a dog travels through the underworld in search of his friend.",
+            image: "./assets/LBWY.png",
+            technologies: ["Unity", "C#", "Figma", "Adobe"],
+            link: "https://eventhorizonschool.itch.io/lost-but-with-you"
         },
         {
             title: "Task Manager App",
