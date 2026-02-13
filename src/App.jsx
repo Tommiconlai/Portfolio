@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CVPage from './pages/CVPage';
 import ProjectsPage from './pages/ProjectsPage';
+import SiegeCore from './pages/SiegeCore';
 import './styles/style.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/cv" element={<CVPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/siegecore" element={<SiegeCore />} />
           </Routes>
         </main>
         <Footer />

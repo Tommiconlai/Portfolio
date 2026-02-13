@@ -27,11 +27,11 @@ function ProjectsPage() {
             link: "https://eventhorizonschool.itch.io/daemons-love-and-carnage"
         },
         {
-            title: "Social Media Analytics",
-            description: "Tool di analisi per social media con metriche avanzate, report automatici e visualizzazioni dati.",
+            title: "SiegeCore",
+            description: "Gioco di carte strategico su griglia ambientato in un futuro rappresentato da varie sfaccettature del genere cyberpunk.",
             image: "https://via.placeholder.com/400x250/744210/ffffff?text=Analytics",
             technologies: ["React", "D3.js", "Express", "PostgreSQL"],
-            link: "https://github.com/tuousername/progetto4"
+            link: "/projects/siegecore"
         },
         {
             title: "Recipe Finder",

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function ProjectCard({ title, description, image, technologies, link }) {
     return (
         <div className="project-card">
@@ -13,9 +15,15 @@ function ProjectCard({ title, description, image, technologies, link }) {
                     ))}
                 </div>
                 {link && (
-                    <a href={link} target="_blank" rel="noopener noreferrer" className="project-link">
-                        Vedi Progetto →
-                    </a>
+                    link.startsWith('http') ? (
+                        <a href={link} target="_blank" rel="noopener noreferrer" className="project-link">
+                            Vedi Progetto →
+                        </a>
+                    ) : (
+                        <Link to={link} className="project-link">
+                            Vedi Progetto →
+                        </Link>
+                    )
                 )}
             </div>
         </div>
