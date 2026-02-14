@@ -4,6 +4,10 @@ import cardAnatomyLayout from "../assets/card-anatomy-layout.png";
 import cardAnatomyStats from "../assets/card-anatomy-stats.png";
 import cardAnatomyMovement from "../assets/card-anatomy-movement.png";
 import cardAnatomyIllustration from "../assets/card-anatomy-illustration.png";
+import illustrator from "../assets/Logo-Illustrator.png";
+import photoshop from "../assets/Logo-Photoshop.png";
+import indesign from "../assets/Logo-inDesign.png";
+import figma from "../assets/Logo-Figma.png";
 
 function SiegeCore() {
     const [isActive, setIsActive] = useState(false);
@@ -16,8 +20,20 @@ function SiegeCore() {
         <div className="siegecore-page">
             <div className="scroll-snap-container">
                 <section className="siegecore-section siegecore-header">
-                    <h1>SiegeCore</h1>
-                    <p>Gioco di carte strategico su griglia ambientato in un futuro rappresentato da varie sfaccettature del genere cyberpunk.</p>
+                    <div>
+                        <h1>SiegeCore</h1>
+                        <p>Gioco di carte strategico su griglia ambientato in un futuro rappresentato da varie sfaccettature del genere cyberpunk.</p>
+                    </div>
+
+                    <div>
+                        <h2>Programmi usati</h2>
+                        <div>
+                            <img src={illustrator} alt="Logo Illustrator" />
+                            <img src={photoshop} alt="Logo Photoshop" />
+                            <img src={indesign} alt="Logo InDesign" />
+                            <img src={figma} alt="Logo Figma" />
+                        </div>
+                    </div>
                 </section>
 
                 <section className="siegecore-section card-anatomy">
@@ -31,7 +47,7 @@ function SiegeCore() {
                             <img className="card-anatomy-movement" src={cardAnatomyMovement} alt="" />
                         </div>
                     </div>
-                    <button className="btn btn-secondary" onClick={handleToggle}>
+                    <button className={`card-btn ${isActive ? 'active' : ''}`} onClick={handleToggle}>
                         {isActive ? 'Chiudi' : 'Scopri di più'}
                     </button>
                 </section>
