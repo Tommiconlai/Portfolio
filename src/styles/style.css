@@ -535,7 +535,7 @@ footer {
 
 /* ==================== SiegeCore ==================== */
 :root {
-  --card-rotation: rotateX(45deg) rotateY(0deg) rotateZ(45deg);
+  --card-rotation: rotateX(45deg) rotateY(0deg) rotateZ(30deg);
   --card-rotation-end: rotateX(65deg) rotateY(0deg) rotateZ(45deg);
 }
 
@@ -570,8 +570,9 @@ footer {
 
 .card {
   position: relative;
-  width: 400px;
-  height: 420px;
+  max-width: 400px;
+  width: 100%;
+  aspect-ratio: 400 / 420;
   margin: var(--spacing-2xl) auto;
   perspective: 1000px;
 }
@@ -585,14 +586,46 @@ footer {
   transition: all 0.5s ease-in-out;
 }
 
+.card-anatomy-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.card-anatomy-content>div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 80px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+.card-anatomy-content:hover>div:last-child {
+  opacity: 1;
+  visibility: visible;
+}
+
+.card-anatomy-content p {
+  font-size: 1rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+}
+
 /* Start Position */
 .card-anatomy-movement {
-  transform: var(--card-rotation) translateZ(10px);
+  transform: var(--card-rotation) translateZ(2px);
   z-index: 5;
 }
 
 .card-anatomy-stats {
-  transform: var(--card-rotation) translateZ(5px);
+  transform: var(--card-rotation) translateZ(1px);
   z-index: 4;
 }
 
@@ -602,12 +635,12 @@ footer {
 }
 
 .card-anatomy-effect {
-  transform: var(--card-rotation) translateZ(-5px);
+  transform: var(--card-rotation) translateZ(-1px);
   z-index: 2;
 }
 
 .card-anatomy-illustration {
-  transform: var(--card-rotation) translateZ(-10px);
+  transform: var(--card-rotation) translateZ(-2px);
   z-index: 1;
 }
 
@@ -679,6 +712,19 @@ footer {
 
   .footer-content {
     grid-template-columns: 1fr;
+  }
+
+  .siegecore-page h1 {
+    font-size: 2rem;
+  }
+
+  .siegecore-page h2 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    max-width: 90%;
+    margin: var(--spacing-lg) auto;
   }
 }
 

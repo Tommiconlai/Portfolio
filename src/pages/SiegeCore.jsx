@@ -14,17 +14,23 @@ function SiegeCore() {
             <section className="card-anatomy">
                 <h2>Anatomia della Carta</h2>
                 <p>Le carte sono il fulcro del gioco e presentano diverse caratteristiche:</p>
-
-                <div className="card">
-                    <img className="card-anatomy-illustration" src={cardAnatomyIllustration} alt="" />
-                    <img className="card-anatomy-effect" src={cardAnatomyEffect} alt="" />
-                    <img className="card-anatomy-layout" src={cardAnatomyLayout} alt="" />
-                    <img className="card-anatomy-stats" src={cardAnatomyStats} alt="" />
-                    <img className="card-anatomy-movement" src={cardAnatomyMovement} alt="" />
-                </div>
-
+                <section className="card-anatomy-content">
+                    <div className="card">
+                        <img className="card-anatomy-illustration" src={cardAnatomyIllustration} alt="" />
+                        <img className="card-anatomy-effect" src={cardAnatomyEffect} alt="" />
+                        <img className="card-anatomy-layout" src={cardAnatomyLayout} alt="" />
+                        <img className="card-anatomy-stats" src={cardAnatomyStats} alt="" />
+                        <img className="card-anatomy-movement" src={cardAnatomyMovement} alt="" />
+                    </div>
+                    <div>
+                        <p>- Movement</p>
+                        <p>- Stats</p>
+                        <p>- Layout</p>
+                        <p>- Effect</p>
+                        <p>- Illustration</p>
+                    </div>
+                </section>
             </section>
-
         </div>
     );
 }
