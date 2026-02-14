@@ -5,6 +5,23 @@ import cardAnatomyMovement from "../assets/card-anatomy-movement.png";
 import cardAnatomyIllustration from "../assets/card-anatomy-illustration.png";
 
 function SiegeCore() {
+    const elements = [
+        {
+            title: "Movement",
+        },
+        {
+            title: "Stats",
+        },
+        {
+            title: "Layout",
+        },
+        {
+            title: "Effect",
+        },
+        {
+            title: "Illustration",
+        }
+    ]
     return (
         <div className="siegecore-page">
             <section className="siegecore-header">
@@ -15,19 +32,19 @@ function SiegeCore() {
                 <h2>Anatomia della Carta</h2>
                 <p>Le carte sono il fulcro del gioco e presentano diverse caratteristiche:</p>
                 <section className="card-anatomy-content">
-                    <div className="card">
-                        <img className="card-anatomy-illustration" src={cardAnatomyIllustration} alt="" />
-                        <img className="card-anatomy-effect" src={cardAnatomyEffect} alt="" />
-                        <img className="card-anatomy-layout" src={cardAnatomyLayout} alt="" />
-                        <img className="card-anatomy-stats" src={cardAnatomyStats} alt="" />
-                        <img className="card-anatomy-movement" src={cardAnatomyMovement} alt="" />
-                    </div>
+                    {
+                        <div className="card">
+                            <img className="card-anatomy-illustration" src={cardAnatomyIllustration} alt="" />
+                            <img className="card-anatomy-effect" src={cardAnatomyEffect} alt="" />
+                            <img className="card-anatomy-layout" src={cardAnatomyLayout} alt="" />
+                            <img className="card-anatomy-stats" src={cardAnatomyStats} alt="" />
+                            <img className="card-anatomy-movement" src={cardAnatomyMovement} alt="" />
+                        </div>
+                    }
                     <div>
-                        <p>- Movement</p>
-                        <p>- Stats</p>
-                        <p>- Layout</p>
-                        <p>- Effect</p>
-                        <p>- Illustration</p>
+                        {elements.map((element, index) => (
+                            <p key={index}>{element.title}</p>
+                        ))}
                     </div>
                 </section>
             </section>
