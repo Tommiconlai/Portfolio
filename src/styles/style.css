@@ -44,26 +44,34 @@ body {
 
 .main-content {
   flex: 1;
+  margin-left: 100px;
+  /* Spazio per la sidebar */
 }
 
-/* ==================== HEADER ==================== */
+/* ==================== HEADER (SIDEBAR VERTICALE) ==================== */
 header {
   background-color: var(--color-bg-secondary);
-  padding: var(--spacing-md);
-  border-bottom: 1px solid var(--color-border);
-  position: sticky;
+  padding: var(--spacing-xl) var(--spacing-md);
+  border-right: 2px solid var(--color-border);
+  position: fixed;
+  left: 0;
   top: 0;
+  height: 100vh;
+  width: 100px;
   z-index: 100;
   backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header nav {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: top;
   align-items: center;
   gap: var(--spacing-xl);
-  max-width: 1200px;
-  margin: 0 auto;
+  height: 100%;
 }
 
 header a {
@@ -71,10 +79,13 @@ header a {
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
-  padding: var(--spacing-xs) var(--spacing-md);
+  padding: var(--spacing-md);
   border-radius: var(--border-radius);
   transition: var(--transition);
   position: relative;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  rotate: 180deg;
 }
 
 header a:hover {
@@ -85,17 +96,22 @@ header a:hover {
 header a::after {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 0;
   background-color: var(--color-accent);
-  transition: width 0.3s ease;
+  transition: height 0.3s ease;
 }
 
 header a:hover::after {
-  width: 80%;
+  height: 80%;
+}
+
+/* Burger menu (nascosto su desktop) */
+.burger-menu {
+  display: none;
 }
 
 /* ==================== FOOTER ==================== */
@@ -537,12 +553,11 @@ footer {
 :root {
   --card-rotation: rotateX(45deg) rotateY(0deg) rotateZ(30deg) translateY(-100px) translateX(-50px);
   --card-rotation-end: rotateX(65deg) rotateY(0deg) rotateZ(45deg) translateY(-100px) translateX(-80px);
-  --header-height: 93px;
   --card-offset: 10px;
 }
 
 .siegecore-page {
-  width: 100%;
+  width: calc(100vw - 100px);
   height: 100vh;
   overflow: hidden;
 }
@@ -550,7 +565,7 @@ footer {
 /* Scroll Snap Container */
 .scroll-snap-container {
   width: 100%;
-  height: calc(100vh - var(--header-height));
+  height: 100vh;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -569,7 +584,7 @@ footer {
 
 /* Ogni sezione occupa tutto lo schermo */
 .siegecore-section {
-  min-height: calc(100vh - var(--header-height));
+  min-height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -584,6 +599,7 @@ footer {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
   justify-content: space-around;
+  background-color: #010101;
 }
 
 .siegecore-header h2 {
@@ -641,14 +657,6 @@ footer {
   margin-bottom: var(--spacing-md);
 }
 
-.card img {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  border: 1px solid var(--color-border);
-}
-
 .card-anatomy {
   margin: 0 auto;
   gap: var(--spacing-md);
@@ -668,7 +676,12 @@ footer {
 .card-anatomy-layout,
 .card-anatomy-effect,
 .card-anatomy-illustration {
-  transition: transform 0.8s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  transition: 0.8s ease-in-out;
 }
 
 /* Start Position */
@@ -732,6 +745,7 @@ footer {
 
 .card-explenation {
   justify-content: space-between;
+  background-color: #010101;
 }
 
 /* Rimuovi hover per questo button specifico */
@@ -767,8 +781,132 @@ footer {
   }
 }
 
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
+  /* ==================== MOBILE BURGER MENU ==================== */
+
+  /* Trasforma header in container per burger menu */
+  header {
+    width: auto;
+    height: auto;
+    padding: 0;
+    background: transparent;
+    border: none;
+    position: static;
+    backdrop-filter: none;
+    display: block;
+  }
+
+  /* Rimuovi margin-left dal contenuto */
+  .main-content {
+    margin-left: 0;
+  }
+
+  /* Aggiusta SiegeCore per mobile */
+  .siegecore-page {
+    width: 100vw;
+  }
+
+  /* Mostra burger menu */
+  .burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: var(--spacing-lg);
+    left: var(--spacing-lg);
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+  }
+
+  .burger-line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-accent);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  /* Animazione burger a X quando aperto */
+  .burger-line.open:nth-child(1) {
+    transform: rotate(-45deg) translate(-7px, 7px);
+  }
+
+  .burger-line.open:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  .burger-line.open:nth-child(3) {
+    opacity: 0;
+  }
+
+  /* Menu icone che appaiono dal basso */
+  header nav {
+    position: fixed;
+    bottom: calc(var(--spacing-lg) + 70px);
+    left: var(--spacing-lg);
+    flex-direction: column-reverse;
+    gap: var(--spacing-md);
+    z-index: 999;
+    display: none;
+  }
+
+  header nav.menu-open {
+    display: flex;
+  }
+
+  header nav a {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    writing-mode: horizontal-tb;
+    text-orientation: mixed;
+    rotate: 0deg;
+    padding: 0;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpFade 0.4s ease forwards;
+  }
+
+  /* Ritardi per animazione cascata */
+  header nav a:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  header nav a:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  header nav a:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  header nav a::after {
+    display: none;
+  }
+
   .hero-content h1 {
     font-size: 2.5rem;
   }
@@ -779,15 +917,6 @@ footer {
 
   .hero-description {
     font-size: 1rem;
-  }
-
-  header nav {
-    gap: var(--spacing-md);
-  }
-
-  header a {
-    font-size: 1rem;
-    padding: var(--spacing-xs);
   }
 
   .projects-grid {

@@ -20,7 +20,7 @@ function App() {
             <Route path="/projects/siegecore" element={<SiegeCore />} />
           </Routes>
         </main>
-        <Footer />
+        {/*<Footer />*/}
       </div>
     </Router>
   );
