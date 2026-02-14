@@ -535,13 +535,48 @@ footer {
 
 /* ==================== SiegeCore ==================== */
 :root {
-  --card-rotation: rotateX(45deg) rotateY(0deg) rotateZ(30deg);
-  --card-rotation-end: rotateX(65deg) rotateY(0deg) rotateZ(45deg);
+  --card-rotation: rotateX(45deg) rotateY(0deg) rotateZ(30deg) translateY(-100px) translateX(-50px);
+  --card-rotation-end: rotateX(65deg) rotateY(0deg) rotateZ(45deg) translateY(-100px) translateX(-80px);
+  --header-height: 93px;
+  --card-offset: 10px;
 }
 
 .siegecore-page {
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Scroll Snap Container */
+.scroll-snap-container {
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  /* Nascondi scrollbar */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+}
+
+/* Nascondi scrollbar per Chrome, Safari e Opera */
+.scroll-snap-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ogni sezione occupa tutto lo schermo */
+.siegecore-section {
+  min-height: calc(100vh - var(--header-height));
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
   padding: var(--spacing-xl) var(--spacing-md);
 }
 
@@ -573,8 +608,14 @@ footer {
   max-width: 400px;
   width: 100%;
   aspect-ratio: 400 / 420;
-  margin: var(--spacing-2xl) auto;
+  margin: 0 auto;
   perspective: 1000px;
+}
+
+.card-explenation h2 {
+  font-size: 2rem;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
 }
 
 .siegecore-page img {
@@ -583,40 +624,28 @@ footer {
   height: 100%;
   border-radius: 12px;
   border: 1px solid var(--color-border);
-  transition: all 0.5s ease-in-out;
+}
+
+.card-anatomy {
+  margin: 0 auto;
+  gap: var(--spacing-md);
+  justify-content: space-between;
 }
 
 .card-anatomy-content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-md);
   width: 100%;
 }
 
-.card-anatomy-content>div:last-child {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 80px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
-}
-
-.card-anatomy-content:hover>div:last-child {
-  opacity: 1;
-  visibility: visible;
-}
-
-.card-anatomy-content p {
-  font-size: 1rem;
-  color: var(--color-accent);
-  font-weight: 600;
-  margin: 0;
-  white-space: nowrap;
+.card-anatomy-movement,
+.card-anatomy-stats,
+.card-anatomy-layout,
+.card-anatomy-effect,
+.card-anatomy-illustration {
+  transition: transform 0.8s ease-in-out;
 }
 
 /* Start Position */
@@ -646,24 +675,28 @@ footer {
 }
 
 /* End Position */
-.card:hover .card-anatomy-movement {
-  transform: var(--card-rotation-end) translateZ(200px);
+.card.active .card-anatomy-movement {
+  transform: var(--card-rotation-end) translateZ(180px);
 }
 
-.card:hover .card-anatomy-stats {
-  transform: var(--card-rotation-end) translateZ(100px);
+.card.active .card-anatomy-stats {
+  transform: var(--card-rotation-end) translateZ(90px);
 }
 
-.card:hover .card-anatomy-layout {
+.card.active .card-anatomy-layout {
   transform: var(--card-rotation-end) translateZ(0px);
 }
 
-.card:hover .card-anatomy-effect {
-  transform: var(--card-rotation-end) translateZ(-100px);
+.card.active .card-anatomy-effect {
+  transform: var(--card-rotation-end) translateZ(-90px);
 }
 
-.card:hover .card-anatomy-illustration {
-  transform: var(--card-rotation-end) translateZ(-200px);
+.card.active .card-anatomy-illustration {
+  transform: var(--card-rotation-end) translateZ(-180px);
+}
+
+button:hover {
+  background-color: var(--color-accent-hover);
 }
 
 /* ==================== ANIMATIONS ==================== */
