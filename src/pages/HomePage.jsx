@@ -6,10 +6,10 @@ function HomePage() {
             <section className="hero">
                 <div className="hero-content">
                     <h1>Gabriele Tomasso</h1>
-                    <h2>Developer / UI/UX Designer / Grafico</h2>
+                    <h2>Developer - UI/UX Designer - Grafico</h2>
                     <p className="hero-description">
-                        Benvenuto nel mio portfolio. Sono uno sviluppatore appassionato
-                        di tecnologie web moderne e design intuitivo.
+                        Specializzato nello sviluppo di applicazioni web moderne con React e Node.js,
+                        con esperienza in AI generativa e una solida formazione in design grafico.
                     </p>
                     <div className="hero-buttons">
                         <Link to="/cv" className="btn btn-primary">Vedi CV</Link>
@@ -21,16 +21,13 @@ function HomePage() {
             <section className="about">
                 <h2>Chi Sono</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                    nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum.
+                    Sono attualmente specializzato nello sviluppo di applicazioni web moderne con React,
+                    Node.js e database sia SQL che NoSQL. La mia esperienza come stagista developer
+                    presso NewMediaADV mi ha permesso di approfondire il campo dell'AI generativa,
+                    sviluppando tool innovativi e agenti AI tramite tecnologia n8n. Unisco competenze
+                    tecniche di programmazione (Java, C#, Unity, React) a una solida formazione in
+                    design grafico (Photoshop, Illustrator, Figma), permettendomi di creare soluzioni
+                    complete che integrano funzionalità e estetica.
                 </p>
             </section>
 

@@ -1,13 +1,33 @@
 import { useState } from "react";
-import cardAnatomyEffect from "../assets/card-anatomy-effect.png";
-import cardAnatomyLayout from "../assets/card-anatomy-layout.png";
-import cardAnatomyStats from "../assets/card-anatomy-stats.png";
-import cardAnatomyMovement from "../assets/card-anatomy-movement.png";
-import cardAnatomyIllustration from "../assets/card-anatomy-illustration.png";
+import IconItem from "../components/IconItem";
+import * as siegecore from "../assets/siegecore";
+
+// Software Logos
 import illustrator from "../assets/Logo-Illustrator.png";
 import photoshop from "../assets/Logo-Photoshop.png";
 import indesign from "../assets/Logo-inDesign.png";
 import figma from "../assets/Logo-Figma.png";
+
+// Destructure SiegeCore assets for easier access
+const {
+    cardAnatomyEffect,
+    cardAnatomyLayout,
+    cardAnatomyStats,
+    cardAnatomyMovement,
+    cardAnatomyIllustration,
+    attaccoAutomatico,
+    aumentoForza,
+    aumentoVelocita,
+    congelamento,
+    cura,
+    danneggiamento,
+    esplosione,
+    pesca,
+    rangeAzione,
+    schivata,
+    segnalinoScudo,
+    stordimento,
+} = siegecore;
 
 function SiegeCore() {
     const [isActive, setIsActive] = useState(false);
@@ -54,7 +74,23 @@ function SiegeCore() {
 
                 <section className="siegecore-section card-explenation">
                     <h2>Elementi delle carte</h2>
-                </section>
+                    <div>
+                        <h3>Icone</h3>
+                        <div className="card-icons-grid">
+                            <IconItem src={attaccoAutomatico} alt="Attacco automatico" label="Attacco automatico" />
+                            <IconItem src={aumentoForza} alt="Aumento forza" label="Aumento forza" />
+                            <IconItem src={aumentoVelocita} alt="Aumento velocità" label="Aumento velocità" />
+                            <IconItem src={congelamento} alt="Congelamento" label="Congelamento" />
+                            <IconItem src={cura} alt="Cura" label="Cura" />
+                            <IconItem src={danneggiamento} alt="Danneggiamento" label="Danneggiamento" />
+                            <IconItem src={esplosione} alt="Esplosione" label="Esplosione" />
+                            <IconItem src={pesca} alt="Pesca" label="Pesca" />
+                            <IconItem src={rangeAzione} alt="Range azione" label="Range azione" />
+                            <IconItem src={schivata} alt="Schivata" label="Schivata" />
+                            <IconItem src={segnalinoScudo} alt="Segnalino Scudo" label="Segnalino Scudo" />
+                            <IconItem src={stordimento} alt="Stordimento" label="Stordimento" />
+                        </div>
+                    </div>                </section>
             </div>
         </div>
     );

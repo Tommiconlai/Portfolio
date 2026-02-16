@@ -3,20 +3,24 @@ function CVPage() {
         <div className="cv-page">
             <section className="cv-header">
                 <h1>Gabriele Tomasso</h1>
-                <p className="cv-subtitle">Developer / UI/UX Designer / Grafico</p>
+                <p className="cv-subtitle">Developer - UI/UX Designer - Grafico</p>
                 <div className="cv-contact">
-                    <span>tomasso.job@gmail.com</span>
-                    <span>+39 346 9578393</span>
-                    <span>Cinisello Balsamo, Italia</span>
+                    <p>tomasso.job@gmail.com</p>
+                    <p>+39 346 9578393</p>
+                    <p>Cinisello Balsamo, Italia</p>
                 </div>
             </section>
 
             <section className="cv-section">
                 <h2>Profilo</h2>
                 <p>
-                    Sviluppatore con esperienza in tecnologie web moderne. Appassionato di
-                    creare esperienze utente intuitive e performanti. Sempre alla ricerca
-                    di nuove sfide e opportunità di crescita professionale.
+                    Attualmente specializzato nello sviluppo di applicazioni web moderne con React,
+                    Node.js e database sia SQL che NoSQL. La mia esperienza come stagista developer
+                    presso NewMediaADV mi ha permesso di approfondire il campo dell'AI generativa,
+                    sviluppando tool innovativi e agenti AI tramite tecnologia n8n. Unisco competenze
+                    tecniche di programmazione (Java, C#, Unity, React) a una solida formazione in
+                    design grafico (Photoshop, Illustrator, Figma), permettendomi di creare soluzioni
+                    complete che integrano funzionalità e estetica.
                 </p>
             </section>
 
@@ -25,7 +29,7 @@ function CVPage() {
 
                 <div className="cv-item">
                     <div className="cv-item-header">
-                        <h3>Developer Stagista</h3>
+                        <h3>Developer Intern</h3>
                         <span className="cv-date">Maggio 2025 - Luglio 2025</span>
                     </div>
                     <p className="cv-company">NewMediaADV - Milano, Italia</p>
