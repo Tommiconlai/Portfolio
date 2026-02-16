@@ -27,27 +27,29 @@ function CVPage() {
     return (
         <div className="cv-page">
             <section className="cv-header">
-                <h1>Gabriele Tomasso</h1>
-                <p className="cv-subtitle">Developer - UI/UX Designer - Grafico</p>
-                <div className="cv-contact">
-                    <p>tomasso.job@gmail.com</p>
-                    <p>+39 346 9578393</p>
-                    <p>Cinisello Balsamo, Italia</p>
+                <div>
+                    <h1>Gabriele Tomasso</h1>
+                    <p className="cv-subtitle">Developer - UI/UX Designer - Grafico</p>
+                    <div className="cv-contact">
+                        <p>tomasso.job@gmail.com</p>
+                        <p>+39 346 9578393</p>
+                        <p>Cinisello Balsamo, Italia</p>
+                    </div>
                 </div>
+                <section className="cv-section">
+                    <h2>Profilo</h2>
+                    <p>
+                        Attualmente specializzato nello sviluppo di applicazioni web moderne con React,
+                        Node.js e database sia SQL che NoSQL. La mia esperienza come stagista developer
+                        presso NewMediaADV mi ha permesso di approfondire il campo dell'AI generativa,
+                        sviluppando tool innovativi e agenti AI tramite tecnologia n8n. Unisco competenze
+                        tecniche di programmazione (Java, C#, Unity, React) a una solida formazione in
+                        design grafico (Photoshop, Illustrator, Figma), permettendomi di creare soluzioni
+                        complete che integrano funzionalità e estetica.
+                    </p>
+                </section>
             </section>
 
-            <section className="cv-section">
-                <h2>Profilo</h2>
-                <p>
-                    Attualmente specializzato nello sviluppo di applicazioni web moderne con React,
-                    Node.js e database sia SQL che NoSQL. La mia esperienza come stagista developer
-                    presso NewMediaADV mi ha permesso di approfondire il campo dell'AI generativa,
-                    sviluppando tool innovativi e agenti AI tramite tecnologia n8n. Unisco competenze
-                    tecniche di programmazione (Java, C#, Unity, React) a una solida formazione in
-                    design grafico (Photoshop, Illustrator, Figma), permettendomi di creare soluzioni
-                    complete che integrano funzionalità e estetica.
-                </p>
-            </section>
 
             <section className="cv-section">
                 <h2>Esperienze Lavorative</h2>

@@ -227,13 +227,12 @@ footer {
 .home-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: var(--spacing-md);
 }
 
 .hero {
   text-align: center;
   padding: var(--spacing-2xl) var(--spacing-md);
-  min-height: 70vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -261,6 +260,13 @@ footer {
   animation: fadeInUp 0.8s ease 1s both;
 }
 
+.about-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .about {
   padding: var(--spacing-xl) var(--spacing-md);
   max-width: 800px;
@@ -278,6 +284,7 @@ footer {
 .skills-preview {
   padding: var(--spacing-xl) var(--spacing-md);
   text-align: center;
+  margin: 0 auto;
 }
 
 .skills-preview h2 {
@@ -317,6 +324,11 @@ footer {
   text-align: center;
   padding-bottom: var(--spacing-xl);
   margin-bottom: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  gap: 100px;
 }
 
 .cv-subtitle {
@@ -340,7 +352,10 @@ footer {
 
 .cv-section h2 {
   padding-bottom: var(--spacing-sm);
-  border-bottom: 2px solid var(--color-border);
+}
+
+.cv-section p {
+  text-align: justify;
 }
 
 .cv-item {
@@ -357,8 +372,6 @@ footer {
   gap: var(--spacing-sm);
   margin-bottom: var(--spacing-xs);
 }
-
-
 
 .cv-date {
   color: var(--color-text-muted);
@@ -390,7 +403,7 @@ footer {
 .skills-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xl);
 }
 
 .skill-tag:hover {
@@ -421,10 +434,6 @@ footer {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
 }
-
-
-
-
 
 .projects-grid {
   display: grid;
@@ -472,8 +481,6 @@ footer {
   display: flex;
   flex-direction: column;
 }
-
-
 
 .project-content p {
   color: var(--color-text-muted);
@@ -703,7 +710,7 @@ footer {
   padding: 20px 0px 20px 0px;
 }
 
-.icon-item {
+.icon-item .icon-cv {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -711,7 +718,8 @@ footer {
   padding: var(--spacing-md);
 }
 
-.icon-item img {
+.icon-item img,
+.icon-cv .icon-cv-icon {
   width: 60px;
   height: 60px;
   object-fit: contain;
@@ -719,17 +727,28 @@ footer {
   transition: var(--transition);
 }
 
+.icon-cv:hover .icon-cv-icon {
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--color-accent));
+  transform: scale(1.3);
+}
+
 .icon-item:hover img {
   filter: brightness(0) invert(1) drop-shadow(0 0 10px var(--color-accent));
   transform: scale(1.3);
 }
 
-.icon-item p {
+.icon-item p,
+.icon-cv p {
   color: var(--color-text-muted);
   font-size: 0.9rem;
   text-align: center;
   margin: 0;
   transition: var(--transition);
+}
+
+.icon-cv:hover p {
+  color: var(--color-accent);
+  transform: translateY(5px);
 }
 
 .icon-item:hover p {
