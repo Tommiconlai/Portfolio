@@ -80,7 +80,6 @@ p {
   margin-bottom: var(--spacing-sm);
 }
 
-
 /* ==================== HEADER (SIDEBAR VERTICALE) ==================== */
 header {
   background-color: var(--color-bg-secondary);
@@ -146,6 +145,47 @@ header a:hover::after {
 .burger-menu {
   display: none;
 }
+
+/* ==================== LANGUAGE SWITCHER ==================== */
+.language-switcher {
+  display: flex;
+  gap: var(--spacing-xs);
+  margin-top: auto;
+  padding: var(--spacing-sm);
+}
+
+.lang-btn {
+  background-color: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  writing-mode: horizontal-tb;
+  text-orientation: initial;
+  rotate: 0deg;
+}
+
+.lang-btn:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background-color: rgba(89, 144, 231, 0.1);
+}
+
+.lang-btn.active {
+  background-color: var(--color-accent);
+  color: white;
+  border-color: var(--color-accent);
+}
+
+.lang-btn.active:hover {
+  background-color: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+}
+
 
 /* ==================== FOOTER ==================== */
 footer {

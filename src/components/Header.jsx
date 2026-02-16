@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 function Header() {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -19,9 +22,10 @@ function Header() {
 
       {/* Navigation menu */}
       <nav className={isMenuOpen ? 'menu-open' : ''}>
-        <Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link>
-        <Link to="/cv" onClick={() => setIsMenuOpen(false)}>CV</Link>
-        <Link to="/projects" onClick={() => setIsMenuOpen(false)}>Progetti</Link>
+        <Link to="/" onClick={() => setIsMenuOpen(false)}>{t('nav.home')}</Link>
+        <Link to="/cv" onClick={() => setIsMenuOpen(false)}>{t('nav.cv')}</Link>
+        <Link to="/projects" onClick={() => setIsMenuOpen(false)}>{t('nav.projects')}</Link>
+        <LanguageSwitcher />
       </nav>
     </header>
   );

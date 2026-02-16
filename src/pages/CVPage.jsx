@@ -1,116 +1,112 @@
+import { useTranslation } from 'react-i18next';
+
 function CVPage() {
+    const { t } = useTranslation();
+
     return (
         <div className="cv-page">
             <section className="cv-header">
-                <h1>Gabriele Tomasso</h1>
-                <p className="cv-subtitle">Developer - UI/UX Designer - Grafico</p>
+                <h1>{t('cv.title')}</h1>
+                <p className="cv-subtitle">{t('cv.subtitle')}</p>
                 <div className="cv-contact">
-                    <p>tomasso.job@gmail.com</p>
-                    <p>+39 346 9578393</p>
-                    <p>Cinisello Balsamo, Italia</p>
+                    <p>{t('cv.email')}</p>
+                    <p>{t('cv.phone')}</p>
+                    <p>{t('cv.location')}</p>
                 </div>
             </section>
 
             <section className="cv-section">
-                <h2>Profilo</h2>
-                <p>
-                    Attualmente specializzato nello sviluppo di applicazioni web moderne con React,
-                    Node.js e database sia SQL che NoSQL. La mia esperienza come stagista developer
-                    presso NewMediaADV mi ha permesso di approfondire il campo dell'AI generativa,
-                    sviluppando tool innovativi e agenti AI tramite tecnologia n8n. Unisco competenze
-                    tecniche di programmazione (Java, C#, Unity, React) a una solida formazione in
-                    design grafico (Photoshop, Illustrator, Figma), permettendomi di creare soluzioni
-                    complete che integrano funzionalità e estetica.
-                </p>
+                <h2>{t('cv.profileTitle')}</h2>
+                <p>{t('cv.profileText')}</p>
             </section>
 
             <section className="cv-section">
-                <h2>Esperienze Lavorative</h2>
+                <h2>{t('cv.experienceTitle')}</h2>
 
                 <div className="cv-item">
                     <div className="cv-item-header">
-                        <h3>Developer Intern</h3>
-                        <span className="cv-date">Maggio 2025 - Luglio 2025</span>
+                        <h3>{t('cv.experienceIntern')}</h3>
+                        <span className="cv-date">{t('cv.experienceInternDate')}</span>
                     </div>
-                    <p className="cv-company">NewMediaADV - Milano, Italia</p>
+                    <p className="cv-company">{t('cv.experienceInternCompany')}</p>
                     <ul>
-                        <li>Sviluppo di tool che utilizzano AI generativa</li>
-                        <li>Sviluppo di agenti AI tramite tecnologia n8n</li>
-                        <li>Ricerche nel campo AI sulle ultime novità e applicazioni pratiche</li>
+                        <li>{t('cv.experienceInternTask1')}</li>
+                        <li>{t('cv.experienceInternTask2')}</li>
+                        <li>{t('cv.experienceInternTask3')}</li>
                     </ul>
                 </div>
 
                 <div className="cv-item">
                     <div className="cv-item-header">
-                        <h3>Junior Graphic Designer</h3>
-                        <span className="cv-date">Maggio 2023 - Maggio 2024</span>
+                        <h3>{t('cv.experienceGraphic')}</h3>
+                        <span className="cv-date">{t('cv.experienceGraphicDate')}</span>
                     </div>
-                    <p className="cv-company">Il Pertini centro Culturale - Cinisello Balsamo, Italia</p>
+                    <p className="cv-company">{t('cv.experienceGraphicCompany')}</p>
                     <ul>
-                        <li>Progettazione di manifesti, locandine e post per i social dei vari eventi proposti nella biblioteca</li>
-                        <li>Organizzazione eventi</li>
-                        <li>Helpdesk biblioteca</li>
+                        <li>{t('cv.experienceGraphicTask1')}</li>
+                        <li>{t('cv.experienceGraphicTask2')}</li>
+                        <li>{t('cv.experienceGraphicTask3')}</li>
                     </ul>
                 </div>
 
                 <div className="cv-item">
                     <div className="cv-item-header">
-                        <h3>Operaio metalmeccanico magazziniere</h3>
-                        <span className="cv-date">Maggio 2016 - Aprile 2019</span>
+                        <h3>{t('cv.experienceWorker')}</h3>
+                        <span className="cv-date">{t('cv.experienceWorkerDate')}</span>
                     </div>
-                    <p className="cv-company">Albertin Alcide snc - Cinisello Balsamo, Italia</p>
+                    <p className="cv-company">{t('cv.experienceWorkerCompany')}</p>
                     <ul>
-                        <li>Controllo qualità di matrici per stampa a caldo in magnesio ed ottone</li>
-                        <li>Imballo merci, inventario del magazzino</li>
-                        <li>Produzione tramite lavorazione in resina epossidica</li>
+                        <li>{t('cv.experienceWorkerTask1')}</li>
+                        <li>{t('cv.experienceWorkerTask2')}</li>
+                        <li>{t('cv.experienceWorkerTask3')}</li>
                     </ul>
                 </div>
 
                 <div className="cv-item">
                     <div className="cv-item-header">
-                        <h3>Inventarista</h3>
-                        <span className="cv-date">Marzo 2015 - Novembre 2016</span>
+                        <h3>{t('cv.experienceInventory')}</h3>
+                        <span className="cv-date">{t('cv.experienceInventoryDate')}</span>
                     </div>
-                    <p className="cv-company">Centro ortopedico COR - Cinisello Balsamo, Italia</p>
+                    <p className="cv-company">{t('cv.experienceInventoryCompany')}</p>
                     <ul>
-                        <li>Passaggio a inventario digitale con software gestionale Sigao</li>
+                        <li>{t('cv.experienceInventoryTask1')}</li>
                     </ul>
                 </div>
             </section>
 
             <section className="cv-section">
-                <h2>Formazione</h2>
+                <h2>{t('cv.educationTitle')}</h2>
 
                 <div className="cv-item">
                     <div className="cv-item-header">
-                        <h3>IFTS Developer</h3>
-                        <span className="cv-date">2024 - 2025</span>
+                        <h3>{t('cv.educationIFTS')}</h3>
+                        <span className="cv-date">{t('cv.educationIFTSDate')}</span>
                     </div>
-                    <p className="cv-company">ITS Angelo Rizzoli - Milano</p>
+                    <p className="cv-company">{t('cv.educationIFTSSchool')}</p>
                 </div>
 
                 <div className="cv-item">
                     <div className="cv-item-header">
-                        <h3>Corso Game Designer</h3>
-                        <span className="cv-date">2019 - 2022</span>
+                        <h3>{t('cv.educationGameDesign')}</h3>
+                        <span className="cv-date">{t('cv.educationGameDesignDate')}</span>
                     </div>
-                    <p className="cv-company">Event Horizon School - Milano</p>
+                    <p className="cv-company">{t('cv.educationGameDesignSchool')}</p>
                 </div>
 
                 <div className="cv-item">
                     <div className="cv-item-header">
-                        <h3>Diploma Liceo Scientifico Biologico</h3>
-                        <span className="cv-date">2009 - 2014</span>
+                        <h3>{t('cv.educationHighSchool')}</h3>
+                        <span className="cv-date">{t('cv.educationHighSchoolDate')}</span>
                     </div>
-                    <p className="cv-company">Liceo Scientifico Biologico - Cinisello Balsamo</p>
+                    <p className="cv-company">{t('cv.educationHighSchoolName')}</p>
                 </div>
             </section>
 
             <section className="cv-section">
-                <h2>Competenze Tecniche</h2>
+                <h2>{t('cv.skillsTitle')}</h2>
 
                 <div className="skills-category">
-                    <h3>Programming</h3>
+                    <h3>{t('cv.programming')}</h3>
                     <div className="skills-tags">
                         <span className="skill-tag">Java</span>
                         <span className="skill-tag">C#</span>
@@ -129,7 +125,7 @@ function CVPage() {
                 </div>
 
                 <div className="skills-category">
-                    <h3>Graphic</h3>
+                    <h3>{t('cv.graphic')}</h3>
                     <div className="skills-tags">
                         <span className="skill-tag">Photoshop</span>
                         <span className="skill-tag">Illustrator</span>
@@ -143,16 +139,16 @@ function CVPage() {
             </section>
 
             <section className="cv-section">
-                <h2>Lingue</h2>
+                <h2>{t('cv.languagesTitle')}</h2>
                 <div className="languages">
                     <div className="language-item">
-                        <strong>Italiano:</strong> Madrelingua
+                        <strong>{t('cv.italian')}:</strong> {t('cv.italianLevel')}
                     </div>
                     <div className="language-item">
-                        <strong>Inglese:</strong> Intermedio (B2)
+                        <strong>{t('cv.english')}:</strong> {t('cv.englishLevel')}
                     </div>
                     <div className="language-item">
-                        <strong>Spagnolo:</strong> Base (A2)
+                        <strong>{t('cv.spanish')}:</strong> {t('cv.spanishLevel')}
                     </div>
                 </div>
             </section>

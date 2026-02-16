@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import CVPage from './pages/CVPage';
 import ProjectsPage from './pages/ProjectsPage';
 import SiegeCore from './pages/SiegeCore';
+import './i18n';
 import './styles/style.css';
 
 function App() {
