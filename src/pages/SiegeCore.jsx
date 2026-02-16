@@ -90,7 +90,8 @@ function SiegeCore() {
                             <IconItem src={segnalinoScudo} alt="Segnalino Scudo" label="Segnalino Scudo" />
                             <IconItem src={stordimento} alt="Stordimento" label="Stordimento" />
                         </div>
-                    </div>                </section>
+                    </div>
+                </section>
             </div>
         </div>
     );

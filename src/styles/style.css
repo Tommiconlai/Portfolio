@@ -240,17 +240,17 @@ footer {
 }
 
 .hero-content h1 {
-  animation: fadeInUp 0.8s ease;
+  animation: fadeInRight 0.8s ease;
 }
 
 .hero-content h2 {
-  animation: fadeInUp 0.8s ease 0.2s both;
+  animation: fadeInLeft 0.8s ease 0.4s both;
 }
 
 .hero-description {
   max-width: 600px;
   margin: 0 auto var(--spacing-xl);
-  animation: fadeInUp 0.8s ease 0.4s both;
+  animation: fadeInRight 0.8s ease 0.6s both;
 }
 
 .hero-buttons {
@@ -258,7 +258,7 @@ footer {
   gap: var(--spacing-md);
   justify-content: center;
   flex-wrap: wrap;
-  animation: fadeInUp 0.8s ease 0.6s both;
+  animation: fadeInUp 0.8s ease 1s both;
 }
 
 .about {
@@ -306,10 +306,6 @@ footer {
   box-shadow: 0 8px 24px var(--color-accent);
 }
 
-
-
-
-
 /* ==================== CV PAGE ==================== */
 .cv-page {
   max-width: 900px;
@@ -322,8 +318,6 @@ footer {
   padding-bottom: var(--spacing-xl);
   margin-bottom: var(--spacing-xl);
 }
-
-
 
 .cv-subtitle {
   font-size: 1.5rem;
@@ -526,28 +520,15 @@ footer {
 
 .siegecore-page {
   width: calc(100vw - 100px);
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 /* Scroll Snap Container */
+/* Scroll Container */
 .scroll-snap-container {
   width: 100%;
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  scroll-behavior: smooth;
-
-  /* Nascondi scrollbar */
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
-}
-
-/* Nascondi scrollbar per Chrome, Safari e Opera */
-.scroll-snap-container::-webkit-scrollbar {
-  display: none;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Ogni sezione occupa tutto lo schermo */
@@ -558,8 +539,6 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   padding: var(--spacing-xl) var(--spacing-md);
 }
 
@@ -567,7 +546,6 @@ footer {
   text-align: center;
   margin-bottom: var(--spacing-2xl);
   justify-content: space-around;
-  background-color: #010101;
 }
 
 .siegecore-header h2 {
@@ -688,8 +666,8 @@ footer {
 }
 
 .card-explenation {
+  text-align: center;
   justify-content: space-around;
-  background-color: #010101;
 }
 
 /* Rimuovi hover per questo button specifico */
@@ -720,6 +698,9 @@ footer {
   max-width: 1000px;
   width: 100%;
   margin-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
+  padding: 20px 0px 20px 0px;
 }
 
 .icon-item {
@@ -758,6 +739,30 @@ footer {
 
 
 /* ==================== ANIMATIONS ==================== */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
