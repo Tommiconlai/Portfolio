@@ -1,3 +1,28 @@
+import {
+    SiJavascript,
+    SiReact,
+    SiNodedotjs,
+    SiMongodb,
+    SiFigma,
+    SiAdobephotoshop,
+    SiAdobeillustrator,
+    SiUnity,
+    SiAdobeindesign,
+    SiAdobepremierepro,
+    SiBlender
+} from "react-icons/si";
+import {
+    FaJava,
+    FaHtml5,
+    FaCss3Alt,
+    FaGitAlt,
+    FaGithub
+} from "react-icons/fa";
+import { TbBrandCSharp } from "react-icons/tb";
+import { DiMysql } from "react-icons/di";
+import IconCV from "../components/IconCV";
+
+
 function CVPage() {
     return (
         <div className="cv-page">
@@ -112,32 +137,30 @@ function CVPage() {
                 <div className="skills-category">
                     <h3>Programming</h3>
                     <div className="skills-tags">
-                        <span className="skill-tag">Java</span>
-                        <span className="skill-tag">C#</span>
-                        <span className="skill-tag">Unity</span>
-                        <span className="skill-tag">React</span>
-                        <span className="skill-tag">XML</span>
-                        <span className="skill-tag">HTML</span>
-                        <span className="skill-tag">CSS</span>
-                        <span className="skill-tag">Node.js</span>
-                        <span className="skill-tag">MongoDB</span>
-                        <span className="skill-tag">REST API</span>
-                        <span className="skill-tag">SQL</span>
-                        <span className="skill-tag">Git</span>
-                        <span className="skill-tag">GitHub</span>
+                        <IconCV Icon={SiReact} label="React" color="white" />
+                        <IconCV Icon={FaJava} label="Java" color="white" />
+                        <IconCV Icon={SiJavascript} label="JavaScript" color="white" />
+                        <IconCV Icon={SiNodedotjs} label="Node.js" color="white" />
+                        <IconCV Icon={SiMongodb} label="MongoDB" color="white" />
+                        <IconCV Icon={SiUnity} label="Unity" color="white" />
+                        <IconCV Icon={TbBrandCSharp} label="C#" color="white" />
+                        <IconCV Icon={FaHtml5} label="HTML" color="white" />
+                        <IconCV Icon={FaCss3Alt} label="CSS" color="white" />
+                        <IconCV Icon={DiMysql} label="MySQL" color="white" />
+                        <IconCV Icon={FaGitAlt} label="Git" color="white" />
+                        <IconCV Icon={FaGithub} label="GitHub" color="white" />
                     </div>
                 </div>
 
                 <div className="skills-category">
                     <h3>Graphic</h3>
                     <div className="skills-tags">
-                        <span className="skill-tag">Photoshop</span>
-                        <span className="skill-tag">Illustrator</span>
-                        <span className="skill-tag">inDesign</span>
-                        <span className="skill-tag">Figma</span>
-                        <span className="skill-tag">Premiere</span>
-                        <span className="skill-tag">Blender</span>
-                        <span className="skill-tag">Procreate</span>
+                        <IconCV Icon={SiFigma} label="Figma" color="white" />
+                        <IconCV Icon={SiAdobephotoshop} label="Photoshop" color="white" />
+                        <IconCV Icon={SiAdobeillustrator} label="Illustrator" color="white" />
+                        <IconCV Icon={SiAdobeindesign} label="inDesign" color="white" />
+                        <IconCV Icon={SiAdobepremierepro} label="Premiere" color="white" />
+                        <IconCV Icon={SiBlender} label="Blender" color="white" />
                     </div>
                 </div>
             </section>
