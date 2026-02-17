@@ -174,10 +174,10 @@ function CVPage() {
                         <strong>Italiano:</strong> Madrelingua
                     </div>
                     <div className="language-item">
-                        <strong>Inglese:</strong> Intermedio (B2)
+                        <strong>Inglese:</strong> Intermedio (B1)
                     </div>
                     <div className="language-item">
-                        <strong>Spagnolo:</strong> Base (A2)
+                        <strong>Spagnolo:</strong> Base (A1)
                     </div>
                 </div>
             </section>
