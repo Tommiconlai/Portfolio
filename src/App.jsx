@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import CVPage from './pages/CVPage';
 import ProjectsPage from './pages/ProjectsPage';
 import SiegeCore from './pages/SiegeCore';
+import VectorPage from './pages/VectorPage';
 import './styles/style.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <Route path="/cv" element={<CVPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/siegecore" element={<SiegeCore />} />
+            <Route path="/projects/vector" element={<VectorPage />} />
           </Routes>
         </main>
         {/*<Footer />*/}

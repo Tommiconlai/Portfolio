@@ -34,11 +34,11 @@ function ProjectsPage() {
             link: "/projects/siegecore"
         },
         {
-            title: "Recipe Finder",
-            description: "App per cercare ricette basata su ingredienti disponibili. Include filtri dietetici e salvataggio preferiti.",
+            title: "Vettorizzazione Loghi",
+            description: "Vettorizzazione di loghi per aziende e organizzazioni.",
             image: "https://via.placeholder.com/400x250/9c4221/ffffff?text=Recipe+Finder",
-            technologies: ["React", "Spoonacular API", "LocalStorage"],
-            link: "https://github.com/tuousername/progetto5"
+            technologies: ["Adobe Illustrator"],
+            link: "/projects/vector"
         },
         {
             title: "Portfolio Generator",
