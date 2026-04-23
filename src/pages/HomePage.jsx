@@ -4,19 +4,25 @@ function HomePage() {
     return (
         <div className="home-page">
             <section className="hero">
-                <div className="hero-content">
-                    <h1>Gabriele Tomasso</h1>
-                    <h2>Developer - UI/UX Designer - Grafico</h2>
-                    <p className="hero-description">
-                        Specializzato nello sviluppo di applicazioni web moderne con React e Node.js,
-                        con esperienza in AI generativa e una solida formazione in design grafico.
-                    </p>
-                    <div className="hero-buttons">
-                        <Link to="/cv" className="btn btn-primary">Vedi CV</Link>
-                        <Link to="/projects" className="btn btn-secondary">I Miei Progetti</Link>
-                    </div>
+            <div className="hero-content">
+                <div className="hero-eyebrow">
+                    <span>Portfolio &bull; 2025</span>
                 </div>
-            </section>
+                <h1>
+                    Gabriele
+                    <span className="accent">Tomasso</span>
+                </h1>
+                <h2>Developer &mdash; UI/UX Designer &mdash; Grafico</h2>
+                <p className="hero-description">
+                    Specializzato nello sviluppo di applicazioni web moderne con React e Node.js,
+                    con esperienza in AI generativa e una solida formazione in design grafico.
+                </p>
+                <div className="hero-buttons">
+                    <Link to="/cv" className="btn btn-primary">Vedi CV</Link>
+                    <Link to="/projects" className="btn btn-secondary">I Miei Progetti</Link>
+                </div>
+            </div>
+        </section>
 
             <div className="about-container">
                 <section className="about">
