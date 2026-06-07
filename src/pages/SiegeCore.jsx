@@ -38,6 +38,10 @@ function SiegeCore() {
 
     return (
         <div className="siegecore-page">
+            <title>SiegeCore — Gabriele Tomasso</title>
+            <meta name="description" content="SiegeCore: gioco di carte strategico su griglia ambientato in un futuro cyberpunk. Progetto di card game design di Gabriele Tomasso." />
+            <meta property="og:title" content="SiegeCore — Card Game Cyberpunk" />
+            <meta property="og:description" content="Gioco di carte strategico su griglia ambientato in un futuro cyberpunk. Progetto di card game design di Gabriele Tomasso." />
             <div className="scroll-snap-container">
                 <section className="siegecore-section siegecore-header">
                     <div>
@@ -72,7 +76,7 @@ function SiegeCore() {
                     </button>
                 </section>
 
-                <section className="siegecore-section card-explenation">
+                <section className="siegecore-section card-explanation">
                     <h2>Elementi delle carte</h2>
                     <div>
                         <h3>Icone</h3>

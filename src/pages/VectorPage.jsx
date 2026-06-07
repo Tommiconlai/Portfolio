@@ -3,6 +3,10 @@ import illustrator from "../assets/Logo-Illustrator.png";
 function VectorPage() {
     return (
         <div className="siegecore-page">
+            <title>Vettorizzazione Loghi — Gabriele Tomasso</title>
+            <meta name="description" content="Vettorizzazione e ridisegno di loghi per aziende e organizzazioni. Lavori realizzati in Adobe Illustrator da Gabriele Tomasso." />
+            <meta property="og:title" content="Vettorizzazione Loghi — Gabriele Tomasso" />
+            <meta property="og:description" content="Vettorizzazione e ridisegno di loghi per aziende e organizzazioni in Adobe Illustrator." />
             <div className="scroll-snap-container">
 
                 {/* ── HEADER ── */}
@@ -24,7 +28,7 @@ function VectorPage() {
                 </section>
 
                 {/* ── GALLERIA LOGHI ── */}
-                <section className="siegecore-section card-explenation">
+                <section className="siegecore-section card-explanation">
                     <h2>Loghi Vettorizzati</h2>
                     <p style={{ color: "var(--text-secondary, #aaa)", marginBottom: "2rem" }}>
                         Ogni logo è stato ridisegnato da zero in formato vettoriale SVG/AI
@@ -43,7 +47,7 @@ function VectorPage() {
                 </section>
 
                 {/* ── PROCESSO ── */}
-                <section className="siegecore-section card-explenation">
+                <section className="siegecore-section card-explanation">
                     <h2>Processo di Lavoro</h2>
                     <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", maxWidth: "600px" }}>
                         <div>

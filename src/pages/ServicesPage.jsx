@@ -34,6 +34,10 @@ function ServicesPage() {
 
     return (
         <div className="services-page">
+            <title>Servizi — Gabriele Tomasso</title>
+            <meta name="description" content="Servizi offerti da Gabriele Tomasso: sviluppo web, UI/UX design, grafica, AI e game development." />
+            <meta property="og:title" content="Servizi — Gabriele Tomasso" />
+            <meta property="og:description" content="Servizi offerti da Gabriele Tomasso: sviluppo web, UI/UX design, grafica, AI e game development." />
             <section className="services-header">
                 <h1>I Miei Servizi</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Una panoramica dei servizi che offro per portare le tue idee dal concept al prodotto finale.</p>

@@ -3,20 +3,23 @@ import { Link } from 'react-router-dom';
 function HomePage() {
     return (
         <div className="home-page">
+            <title>Gabriele Tomasso — Developer & Designer</title>
+            <meta name="description" content="Portfolio di Gabriele Tomasso: developer e designer. React, Node.js, AI generativa e design grafico." />
+            <meta property="og:title" content="Gabriele Tomasso — Developer & Designer" />
+            <meta property="og:description" content="Portfolio di Gabriele Tomasso: developer e designer. React, Node.js, AI generativa e design grafico." />
             <section className="hero">
             <div className="hero-content">
-                <div className="hero-eyebrow">
-                    <span>Portfolio &bull; 2025</span>
-                </div>
                 <h1>
                     Gabriele
                     <span className="accent">Tomasso</span>
                 </h1>
-                <h2>Developer &mdash; UI/UX Designer &mdash; Grafico</h2>
+                <h2>Graphic Designer &mdash; UI/UX Designer &mdash; Developer</h2>
                 <p className="hero-description">
-                    Specializzato nello sviluppo di applicazioni web moderne con React e Node.js,
-                    con esperienza in AI generativa e una solida formazione in design grafico.
+                    Designer e developer in una persona sola: passo dal mockup Figma al React in
+                    produzione senza handoff. Stack React + Node.js, esperienza recente in AI
+                    generativa e agenti n8n.
                 </p>
+                <p className="hero-cta-note">Disponibile per nuovi progetti</p>
                 <div className="hero-buttons">
                     <Link to="/cv" className="btn btn-primary">Vedi CV</Link>
                     <Link to="/projects" className="btn btn-secondary">I Miei Progetti</Link>
@@ -28,13 +31,12 @@ function HomePage() {
                 <section className="about">
                     <h2>Chi Sono</h2>
                     <p>
-                        Sono attualmente specializzato nello sviluppo di applicazioni web moderne con React,
-                        Node.js e database sia SQL che NoSQL. La mia esperienza come stagista developer
-                        presso NewMediaADV mi ha permesso di approfondire il campo dell'AI generativa,
-                        sviluppando tool innovativi e agenti AI tramite tecnologia n8n. Unisco competenze
-                        tecniche di programmazione (Java, C#, Unity, React) a una solida formazione in
-                        design grafico (Photoshop, Illustrator, Figma), permettendomi di creare soluzioni
-                        complete che integrano funzionalità e estetica.
+                        Vengo dal mondo del game design e della grafica editoriale, e da lì sono
+                        approdato al codice. Oggi costruisco interfacce web con React e Node.js,
+                        ma il mestiere di designer non l'ho mai messo da parte: ogni progetto
+                        nasce con un occhio alla user experience e l'altro alla pulizia del codice.
+                        L'ultima tappa è stato lo stage in NewMediaADV, dove ho lavorato su
+                        AI generativa e agenti n8n.
                     </p>
                 </section>
 
@@ -43,15 +45,19 @@ function HomePage() {
                     <div className="skills-grid">
                         <div className="skill-item">
                             <h3>Frontend</h3>
-                            <p>React, JavaScript, CSS, HTML</p>
+                            <p>React, JavaScript, HTML, CSS</p>
                         </div>
                         <div className="skill-item">
                             <h3>Backend</h3>
-                            <p>Node.js, Express, APIs</p>
+                            <p>Node.js, Express, MySQL, MongoDB</p>
                         </div>
                         <div className="skill-item">
-                            <h3>Tools</h3>
-                            <p>Git, Vite, npm, VSCode</p>
+                            <h3>Design</h3>
+                            <p>Figma, Illustrator, Photoshop, InDesign</p>
+                        </div>
+                        <div className="skill-item">
+                            <h3>Altro</h3>
+                            <p>Git, Unity, C#, n8n</p>
                         </div>
                     </div>
                 </section>

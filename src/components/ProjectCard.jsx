@@ -4,7 +4,13 @@ function ProjectCard({ title, description, image, technologies, link }) {
     return (
         <div className="project-card">
             <div className="project-image">
-                <img src={image} alt={title} />
+                {image ? (
+                    <img src={image} alt={title} />
+                ) : (
+                    <div className="project-image-fallback" aria-label={title}>
+                        <span>{title}</span>
+                    </div>
+                )}
             </div>
             <div className="project-content">
                 <h3>{title}</h3>
