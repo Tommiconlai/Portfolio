@@ -1,0 +1,36 @@
+/* ==================== DESIGN TOKENS — Game HUD ==================== */
+:root {
+  /* colori */
+  --bg:         #0a0a0d;
+  --bg-2:       #101015;
+  --panel:      rgba(18, 18, 24, 0.82);
+  --panel-solid:#14141a;
+  --line:       #2a2a32;
+  --line-2:     #3a3a44;
+  --txt:        #e8e8ee;
+  --txt-dim:    #8a8a96;
+  --accent:     #4670eb;
+  --accent-dim: #14427a;
+  --glow:       rgba(77, 35, 229, 0.35);
+  --glow-strong:rgba(132, 35, 229, 0.6);
+
+  /* tipografia */
+  --font-display: "Chakra Petch", "Bebas Neue", sans-serif;
+  --font-body:    "Rajdhani", "Inter", sans-serif;
+  --font-mono:    "Share Tech Mono", "Courier New", monospace;
+
+  /* spaziature */
+  --sp-xs: 0.4rem;
+  --sp-sm: 0.8rem;
+  --sp-md: 1.25rem;
+  --sp-lg: 2rem;
+  --sp-xl: 3rem;
+
+  /* shell */
+  --header-h: 64px;
+  --nav-h:    72px;
+  --frame-pad: 18px;
+
+  --ease-hud: cubic-bezier(0.22, 1, 0.36, 1);
+  --clip-cut: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+}

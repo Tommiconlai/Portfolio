@@ -1,35 +1,31 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import CookieBanner from './components/CookieBanner';
 import ScrollToTop from './components/ScrollToTop';
-import HomePage from './pages/HomePage';
-import CVPage from './pages/CVPage';
-import ProjectsPage from './pages/ProjectsPage';
-import ServicesPage from './pages/ServicesPage';
+import Layout from './components/Layout';
+import Intro from './pages/Intro';
+import Stats from './pages/Stats';
+import Character from './pages/Character';
+import Quests from './pages/Quests';
+import Achievements from './pages/Achievements';
+import Gallery from './pages/Gallery';
 import SiegeCore from './pages/SiegeCore';
 import VectorPage from './pages/VectorPage';
-import './styles/style.css';
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="app">
-        <Header />
-        <main className="main-content">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/cv" element={<CVPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/projects/siegecore" element={<SiegeCore />} />
-            <Route path="/projects/vector" element={<VectorPage />} />
-          </Routes>
-        </main>
-        {/*<Footer />*/}
-        <CookieBanner />
-      </div>
+      <Routes>
+        <Route path="/" element={<Intro />} />
+        <Route element={<Layout />}>
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/character" element={<Character />} />
+          <Route path="/quests" element={<Quests />} />
+          <Route path="/achievements" element={<Achievements />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/projects/siegecore" element={<SiegeCore />} />
+          <Route path="/projects/vector" element={<VectorPage />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }
