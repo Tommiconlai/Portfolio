@@ -11,7 +11,7 @@ import siegecore from "../assets/siegecore_logo.png";
 export const identity = {
   name: 'Gabriele "Tommi" Tomasso',
   roles: ["UI/UX Designer", "Developer", "Game Designer"],
-  level: "LV.26",
+  level: "LV.30",
   photo,
   quote: "Dal mockup al codice di produzione, senza handoff.",
   location: "Cinisello Balsamo, IT",
@@ -22,7 +22,6 @@ export const contacts = [
   { label: "Email", icon: "Mail", href: "mailto:tomasso.job@gmail.com" },
   { label: "GitHub", icon: "Github", href: "https://github.com/tommiconlai" },
   { label: "LinkedIn", icon: "Linkedin", href: "https://www.linkedin.com/in/gabrieletomasso/" },
-  { label: "Behance", icon: "Dribbble", href: "#" }, // TODO: URL Behance
   { label: "Portfolio", icon: "Globe", href: "https://gabrieletomasso.it" },
 ];
 
@@ -49,14 +48,13 @@ export const miniStats = [
 export const quests = [
   {
     title: "Barista",
-    org: "—", // TODO: locale
+    org: "Edelweiss Bar",
     date: "in corso",
     status: "active",
     bullets: ["Servizio clienti", "Gestione cassa e postazione"],
   },
   {
-    title: "Freelance Designer & Developer",
-    org: "Bugmoth Studio",
+    title: "Freelance Graphic Designer",
     date: "in corso",
     status: "active",
     bullets: ["Progetti web e grafici per clienti", "Identità visive e UI/UX"],
@@ -86,7 +84,7 @@ export const quests = [
   {
     title: "Esperienze precedenti",
     org: "Albertin Alcide snc / Centro ortopedico COR",
-    date: "2015 - 2019",
+    date: "set 2015 - apr 2019",
     status: "done",
     bullets: [
       "Operaio metalmeccanico magazziniere (2016–2019)",
