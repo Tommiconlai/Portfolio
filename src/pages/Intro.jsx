@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 function Intro() {
   const navigate = useNavigate();
 
   return (
-    <motion.div
+    <Motion.div
       className="intro"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -24,24 +24,24 @@ function Intro() {
         BUGMOTH_STUDIO<br />PORTFOLIO_v.26<br />STATUS: ONLINE
       </span>
 
-      <motion.p
+      <Motion.p
         className="intro__small"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
         Welcome to
-      </motion.p>
-      <motion.h1
+      </Motion.p>
+      <Motion.h1
         className="intro__title"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
         My <span className="accent">Portfolio</span>
-      </motion.h1>
+      </Motion.h1>
 
-      <motion.button
+      <Motion.button
         className="intro__start"
         onClick={() => navigate("/stats")}
         initial={{ opacity: 0, y: 14 }}
@@ -51,9 +51,9 @@ function Intro() {
         whileTap={{ scale: 0.97 }}
       >
         START
-      </motion.button>
+      </Motion.button>
       <p className="intro__hint">Click START to view</p>
-    </motion.div>
+    </Motion.div>
   );
 }
 

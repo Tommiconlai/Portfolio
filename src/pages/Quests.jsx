@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import Panel from "../components/Panel";
 import { quests } from "../data/profile";
 
@@ -14,7 +14,7 @@ function Quests() {
       <meta name="description" content="Esperienze lavorative di Gabriele Tomasso come missioni." />
       <p className="page-head">// MISSION_LOG</p>
 
-      <motion.div className="quest-list" variants={container} initial="hidden" animate="show">
+      <Motion.div className="quest-list" variants={container} initial="hidden" animate="show">
         {quests.map((q, i) => (
           <Panel key={i} label={`QUEST_${String(i + 1).padStart(2, "0")}`}>
             <div className="quest">
@@ -38,7 +38,7 @@ function Quests() {
             </div>
           </Panel>
         ))}
-      </motion.div>
+      </Motion.div>
     </>
   );
 }

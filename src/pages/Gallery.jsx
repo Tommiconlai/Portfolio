@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 import { gallery } from "../data/profile";
 
 const TABS = ["Game", "Graphic", "Website"];
@@ -37,7 +37,7 @@ function Gallery() {
         ))}
       </div>
 
-      <motion.div
+      <Motion.div
         className="gallery-grid"
         variants={container}
         initial="hidden"
@@ -45,7 +45,7 @@ function Gallery() {
         key={tab}
       >
         {items.map((p, i) => (
-          <motion.div
+          <Motion.div
             className="gcard"
             key={p.title + i}
             variants={item}
@@ -62,20 +62,20 @@ function Gallery() {
               <div className="gcard__role">{p.role}</div>
               <div className="gcard__tools">{p.tools}</div>
             </div>
-          </motion.div>
+          </Motion.div>
         ))}
-      </motion.div>
+      </Motion.div>
 
       <AnimatePresence>
         {active && (
-          <motion.div
+          <Motion.div
             className="gmodal-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setActive(null)}
           >
-            <motion.div
+            <Motion.div
               className="gmodal"
               initial={{ opacity: 0, y: 20, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -100,8 +100,8 @@ function Gallery() {
                     OPEN_PROJECT →
                   </Link>
                 ))}
-            </motion.div>
-          </motion.div>
+            </Motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </>

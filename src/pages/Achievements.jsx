@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Code2, Gamepad2, GraduationCap, Trophy } from "lucide-react";
 import Panel from "../components/Panel";
 import HexIcon from "../components/HexIcon";
@@ -18,7 +18,7 @@ function Achievements() {
       <meta name="description" content="Formazione di Gabriele Tomasso come trofei sbloccati." />
       <p className="page-head">// UNLOCKED_BADGES</p>
 
-      <motion.div className="ach-grid" variants={container} initial="hidden" animate="show">
+      <Motion.div className="ach-grid" variants={container} initial="hidden" animate="show">
         {achievements.map((a, i) => {
           const Icon = ICONS[a.icon] || Trophy;
           return (
@@ -36,7 +36,7 @@ function Achievements() {
             </Panel>
           );
         })}
-      </motion.div>
+      </Motion.div>
     </>
   );
 }

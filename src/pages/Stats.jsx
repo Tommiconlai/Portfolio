@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Mail, Code2, Briefcase, Palette, Globe } from "lucide-react";
 import Panel from "../components/Panel";
 import HexIcon from "../components/HexIcon";
@@ -19,7 +19,7 @@ function Stats() {
       <meta name="description" content="Skills e contatti di Gabriele Tomasso: design, sviluppo, game e soft skills." />
       <p className="page-head">// PERSONAL_INFORMATION</p>
 
-      <motion.div className="stats-grid" variants={container} initial="hidden" animate="show">
+      <Motion.div className="stats-grid" variants={container} initial="hidden" animate="show">
         <Panel label="PROFILE" className="profile-card">
           <img className="profile-card__photo" src={identity.photo} alt={identity.name} />
           <span className="profile-card__name">{identity.name}</span>
@@ -61,7 +61,7 @@ function Stats() {
             </div>
           </Panel>
         </div>
-      </motion.div>
+      </Motion.div>
     </>
   );
 }
