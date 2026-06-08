@@ -9,10 +9,10 @@
   --line-2:     #3a3a44;
   --txt:        #e8e8ee;
   --txt-dim:    #8a8a96;
-  --accent:     #4670eb;
-  --accent-dim: #14427a;
-  --glow:       rgba(77, 35, 229, 0.35);
-  --glow-strong:rgba(132, 35, 229, 0.6);
+  --accent:     #E5232B;
+  --accent-dim: #7a1418;
+  --glow:       rgba(229, 35, 43, 0.35);
+  --glow-strong:rgba(229, 35, 43, 0.6);
 
   /* tipografia */
   --font-display: "Chakra Petch", "Bebas Neue", sans-serif;
