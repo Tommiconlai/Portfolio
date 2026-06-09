@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 import HudFrame from "./HudFrame";
 import HudHeader from "./HudHeader";
 import HudNav from "./HudNav";
@@ -19,7 +19,7 @@ export default function Layout() {
 
       <main className="hud-content">
         <AnimatePresence mode="wait">
-          <motion.div
+          <Motion.div
             key={location.pathname}
             initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -27,7 +27,7 @@ export default function Layout() {
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
             <Outlet />
-          </motion.div>
+          </Motion.div>
         </AnimatePresence>
       </main>
 

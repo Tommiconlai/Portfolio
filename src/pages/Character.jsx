@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { Palette, MapPin, Heart } from "lucide-react";
 import Panel from "../components/Panel";
 import HexIcon from "../components/HexIcon";
@@ -18,7 +18,7 @@ function Character() {
       <meta name="description" content="Bio di Gabriele Tomasso: UI/UX designer e sviluppatore con background in game design." />
       <p className="page-head">// CHARACTER_DOSSIER</p>
 
-      <motion.div className="char-grid" variants={container} initial="hidden" animate="show">
+      <Motion.div className="char-grid" variants={container} initial="hidden" animate="show">
         <Panel label="ID" className="profile-card">
           <img className="profile-card__photo" src={identity.photo} alt={identity.name} />
           <span className="profile-card__name">{identity.name}</span>
@@ -42,7 +42,7 @@ function Character() {
             })}
           </div>
         </Panel>
-      </motion.div>
+      </Motion.div>
     </>
   );
 }

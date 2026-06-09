@@ -1,5 +1,5 @@
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import { NAV_ORDER } from "../hooks/useTabKeys";
 
 function HudNav() {
@@ -14,7 +14,7 @@ function HudNav() {
   };
 
   return (
-    <motion.nav
+    <Motion.nav
       className="hud-nav"
       initial={{ y: 40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -40,7 +40,7 @@ function HudNav() {
       <button className="hud-key" onClick={() => go(1)} aria-label="Sezione successiva">
         <kbd>E</kbd> NEXT
       </button>
-    </motion.nav>
+    </Motion.nav>
   );
 }
 

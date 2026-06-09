@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 // Overlay decorativo fisso: cornice, angoli a L, tacche, scanline, vignetta.
 function HudFrame() {
   return (
     <div className="hud-frame" aria-hidden="true">
-      <motion.div
+      <Motion.div
         className="hud-frame__border"
         initial={{ opacity: 0, scale: 0.985 }}
         animate={{ opacity: 1, scale: 1 }}
