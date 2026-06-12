@@ -18,7 +18,7 @@ function Intro() {
         SYS_BOOT // OK<br />CHARGE ▰▰▰▰▰ 100%<br />ENERGY_LEAK: NONE
       </span>
       <span className="intro__tip">
-        Interoperable with keyboard <b>Q</b> | <b>E</b> and your mouse
+        Best experienced with your <b>mouse</b>
       </span>
       <span className="intro__readout intro__readout--br">
         BUGMOTH_STUDIO<br />PORTFOLIO_v.26<br />STATUS: ONLINE

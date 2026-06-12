@@ -23,9 +23,6 @@ function QuickTips() {
           >
             <h4>COMANDI</h4>
             <ul>
-              <li><kbd>Q</kbd> sezione precedente</li>
-              <li><kbd>E</kbd> sezione successiva</li>
-              <li><kbd>←</kbd><kbd>→</kbd> alias frecce</li>
               <li><kbd>Esc</kbd> torna alla hero</li>
               <li><kbd>🖱</kbd> click sulle tab</li>
             </ul>
