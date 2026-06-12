@@ -13,7 +13,6 @@ export const identity = {
   roles: ["UI/UX Designer", "Developer", "Game Designer"],
   level: "LV.30",
   photo,
-  quote: "Dal mockup al codice di produzione, senza handoff.",
   location: "Cinisello Balsamo, IT",
 };
 
@@ -34,14 +33,8 @@ export const skills = [
 
 export const bio = [
   "UI/UX designer e sviluppatore front-end con un background in game design. Lavoro al confine tra estetica e codice: progetto interfacce in Figma e le porto in produzione con React senza passaggi di consegna intermedi.",
-  "Attivo come freelance con Bugmoth Studio. La mia esperienza recente include uno stage in AI generativa e agenti n8n presso NewMediaADV, oltre ad anni di formazione in grafica e game design.",
+  "La mia esperienza recente include uno stage in AI generativa e agenti n8n presso NewMediaADV, oltre ad anni di formazione in grafica e game design.",
   "Ogni progetto nasce con un occhio alla user experience e l'altro alla pulizia del codice.",
-];
-
-export const miniStats = [
-  { label: "What I do", value: "UI/UX & Web Design", icon: "Palette" },
-  { label: "Where I live", value: "Cinisello Balsamo, IT", icon: "MapPin" },
-  { label: "What I love", value: "Game design, Magic: The Gathering, board game", icon: "Heart" },
 ];
 
 // TODO [INPUT GABRIELE]: verificare/correggere voci ed estremi temporali.

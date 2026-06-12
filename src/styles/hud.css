@@ -525,24 +525,14 @@ ul { list-style: none; }
 
 .contacts-row { display: flex; flex-wrap: wrap; gap: var(--sp-md); margin-top: var(--sp-sm); }
 
-.quote {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 1.05rem;
-  color: var(--txt-dim);
-  border-left: 2px solid var(--accent);
-  padding-left: var(--sp-sm);
-}
+/* contatti compatti dentro la profile card */
+.contacts-row--compact { gap: var(--sp-sm); }
+.contacts-row--compact .hex__shape { width: 48px; height: 48px; }
 
-/* ==================== CHARACTER ==================== */
-.char-grid {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: var(--sp-md);
-}
-.char-bio { max-height: 50vh; overflow-y: auto; padding-right: var(--sp-sm); }
-.char-bio p { color: var(--txt-dim); margin-bottom: var(--sp-sm); }
-.char-ministats { display: flex; gap: var(--sp-lg); margin-top: var(--sp-md); flex-wrap: wrap; }
+/* pannello bio: occupa tutta la larghezza della griglia skills */
+.bio-panel { grid-column: 1 / -1; }
+.bio-panel p { color: var(--txt-dim); margin-bottom: var(--sp-sm); }
+.bio-panel p:last-child { margin-bottom: 0; }
 
 /* ==================== QUESTS ==================== */
 .quest-list { display: flex; flex-direction: column; gap: var(--sp-md); }
@@ -657,7 +647,7 @@ ul { list-style: none; }
     padding-left: calc(var(--frame-pad) + var(--sp-md));
     padding-right: calc(var(--frame-pad) + var(--sp-md));
   }
-  .stats-grid, .char-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; }
   .skill-cols { grid-template-columns: 1fr; }
   .hud-header__title { font-size: 1rem; letter-spacing: 0.12em; }
   .hud-header__crumb, .hud-progress, .hud-winctl { display: none; }

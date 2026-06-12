@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 export const NAV_ORDER = [
   { path: "/stats", label: "STATS" },
-  { path: "/character", label: "CHARACTER" },
   { path: "/quests", label: "QUESTS" },
   { path: "/achievements", label: "ACHIEVEMENTS" },
   { path: "/gallery", label: "GALLERY" },
