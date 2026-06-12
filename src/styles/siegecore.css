@@ -152,7 +152,10 @@
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .rotdemo__card.destroyed {
-  animation: rotdemo-glitch 0.45s steps(3) forwards;
+  /* feTurbulence + feDisplacementMap (defs inline nel componente):
+     la carta si "sfalda" mentre il glitch CSS la porta a opacity 0 */
+  filter: url(#rotdemo-shred);
+  animation: rotdemo-glitch 0.6s steps(4) forwards;
 }
 
 .rotdemo__card-img {
@@ -162,6 +165,105 @@
   height: 100%;
   object-fit: contain;
   filter: drop-shadow(0 0 20px var(--glow));
+}
+
+.rotdemo__defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* ── overlay effetti SVG ── */
+.rotdemo__fx {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+  overflow: visible;
+}
+
+/* slash danno */
+.fx-slash {
+  stroke: var(--accent);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 90;
+  stroke-dashoffset: 90;
+  filter: drop-shadow(0 0 6px var(--glow-strong));
+  animation: fx-slash-draw 0.32s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+.fx-slash--2 { animation-delay: 0.07s; stroke-width: 1.6; }
+
+.fx-sparks circle {
+  fill: var(--accent);
+  opacity: 0;
+  animation: fx-spark 0.4s ease-out 0.1s forwards;
+}
+
+/* anello cura */
+.fx-ring {
+  stroke: #4de1a0;
+  stroke-width: 2;
+  fill: none;
+  opacity: 0;
+  transform-origin: 50% 50%;
+  filter: drop-shadow(0 0 8px rgba(77, 225, 160, 0.7));
+  animation: fx-ring-pulse 0.55s ease-out forwards;
+}
+.fx-ring--inner { animation-delay: 0.12s; stroke-width: 1.4; }
+
+.fx-plus path {
+  stroke: #4de1a0;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  fill: none;
+  opacity: 0;
+  animation: fx-plus-float 0.55s ease-out 0.05s forwards;
+}
+
+/* crepe distruzione */
+.fx-shatter path {
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  filter: drop-shadow(0 0 6px var(--glow-strong));
+  animation: fx-shatter-crack 0.6s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+}
+.fx-shatter path:nth-child(2) { animation-delay: 0.05s; }
+.fx-shatter path:nth-child(3) { animation-delay: 0.1s; }
+.fx-shatter path:nth-child(4) { animation-delay: 0.15s; }
+.fx-shatter path:nth-child(5) { animation-delay: 0.08s; }
+.fx-shatter path:nth-child(6) { animation-delay: 0.12s; }
+
+@keyframes fx-slash-draw {
+  60% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@keyframes fx-spark {
+  0% { opacity: 1; transform: scale(0.4); }
+  100% { opacity: 0; transform: scale(2.6) translate(2px, -2px); }
+}
+
+@keyframes fx-ring-pulse {
+  0% { opacity: 0.9; transform: scale(0.45); }
+  100% { opacity: 0; transform: scale(1.25); }
+}
+
+@keyframes fx-plus-float {
+  0% { opacity: 0.95; transform: translateY(6px); }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+@keyframes fx-shatter-crack {
+  50% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
 }
 
 .rotdemo__card-inner {
@@ -203,7 +305,7 @@
   filter: drop-shadow(0 0 4px var(--glow));
 }
 .rotdemo__arrow--n { top: 2px; left: 50%; transform: translateX(-50%); }
-.rotdemo__arrow--ne { top: 4px; right: 4px; }
+.rotdemo__arrow--w { left: 2px; top: 50%; transform: translateY(-50%); }
 .rotdemo__arrow--e { right: 2px; top: 50%; transform: translateY(-50%); }
 
 .rotdemo__status {
@@ -405,5 +507,6 @@
 /* ───────── REDUCED MOTION ───────── */
 @media (prefers-reduced-motion: reduce) {
   .rotdemo__card { transition: none; }
-  .rotdemo__card.destroyed { animation: none; opacity: 0; }
+  .rotdemo__card.destroyed { animation: none; opacity: 0; filter: none; }
+  .rotdemo__fx { display: none; }
 }
