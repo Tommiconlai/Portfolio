@@ -1,10 +1,27 @@
-import { NavLink } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 import { NAV_ORDER } from "../hooks/useTabKeys";
 
 function HudNav() {
+  const location = useLocation();
+  const navRef = useRef(null);
+
+  // Nav scrollabile su mobile: tiene la tab attiva centrata.
+  useEffect(() => {
+    const active = navRef.current?.querySelector(".hud-tab.active");
+    if (!active) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    active.scrollIntoView({
+      inline: "center",
+      block: "nearest",
+      behavior: reduce ? "auto" : "smooth",
+    });
+  }, [location.pathname]);
+
   return (
     <Motion.nav
+      ref={navRef}
       className="hud-nav"
       initial={{ y: 40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}

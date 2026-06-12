@@ -661,9 +661,34 @@ ul { list-style: none; }
   .skill-cols { grid-template-columns: 1fr; }
   .hud-header__title { font-size: 1rem; letter-spacing: 0.12em; }
   .hud-header__crumb, .hud-progress, .hud-winctl { display: none; }
-  .hud-nav { gap: 4px; overflow-x: auto; justify-content: flex-start; }
-  .hud-tab { padding: 10px 12px; font-size: 0.68rem; letter-spacing: 0.08em; }
+  .hud-header--window .hud-winctl { display: flex; }
+
+  /* nav scrollabile: tab attiva centrata via scrollIntoView (HudNav) */
+  .hud-nav {
+    gap: 4px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .hud-nav::-webkit-scrollbar { display: none; }
+  /* padding laterale = anche prima/ultima tab possono stare al centro */
+  .hud-nav__tabs { flex-shrink: 0; padding: 0 calc(50vw - 70px); }
+  .hud-tab {
+    padding: 10px 12px;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
   .quick-tips { display: none; }
+
+  /* intro: hint mouse inutile su touch + collide col readout in alto a sx */
+  .intro__tip { display: none; }
+  .intro__readout { font-size: 0.62rem; }
+
+  /* quest: data sotto al titolo, non in coda alla riga (evita accavallamenti) */
+  .quest__date { margin-left: 0; width: 100%; }
 }
 
 /* ==================== REDUCED MOTION ==================== */
