@@ -3,16 +3,19 @@
 // TODO [INPUT GABRIELE]: voci marcate sotto da verificare/completare.
 
 import photo from "../assets/just_me.jpg";
+import photoAlias from "../assets/me_alias.jpg";
 import lbwy from "../assets/LBWY.png";
 import cube from "../assets/CubeInvaders.png";
 import dlac from "../assets/DLnC.png";
 import siegecore from "../assets/siegecore_logo.png";
 
 export const identity = {
-  name: 'Gabriele "Tommi" Tomasso',
+  name: 'Gabriele Tomasso',
+  alias: "tommiconlai",
   roles: ["UI/UX Designer", "Developer", "Game Designer"],
   level: "LV.30",
   photo,
+  photoAlias,
   location: "Cinisello Balsamo, IT",
 };
 

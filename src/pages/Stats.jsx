@@ -32,6 +32,8 @@ function Stats() {
   };
 
   const displayName = showAlias ? identity.alias : identity.name;
+  const displayPhoto = showAlias ? identity.photoAlias : identity.photo;
+  const glitchCls = `glitch glitch--click ${glitching ? "is-glitching" : ""}`;
 
   return (
     <>
@@ -41,14 +43,18 @@ function Stats() {
 
       <Motion.div className="stats-grid" variants={container} initial="hidden" animate="show">
         <Panel label="PROFILE" className="profile-card">
-          <img className="profile-card__photo" src={identity.photo} alt={identity.name} />
+          <div className={`profile-card__photo-wrap ${glitchCls}`}>
+            <img className="profile-card__photo glitch__base" src={displayPhoto} alt={identity.name} />
+            <img className="profile-card__photo glitch__layer glitch__layer--r" src={displayPhoto} alt="" aria-hidden="true" />
+            <img className="profile-card__photo glitch__layer glitch__layer--c" src={displayPhoto} alt="" aria-hidden="true" />
+          </div>
           <button
             type="button"
-            className="profile-card__name profile-card__name--toggle"
+            className={`profile-card__name profile-card__name--toggle ${showAlias ? "is-alias" : ""}`}
             onClick={toggleName}
             aria-label={showAlias ? "Mostra nome" : "Mostra nickname"}
           >
-            <span className={`glitch glitch--click ${glitching ? "is-glitching" : ""}`}>
+            <span className={glitchCls}>
               <span className="glitch__base">{displayName}</span>
               <span className="glitch__layer glitch__layer--r" aria-hidden="true">{displayName}</span>
               <span className="glitch__layer glitch__layer--c" aria-hidden="true">{displayName}</span>
