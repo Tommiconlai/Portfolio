@@ -102,7 +102,7 @@ export const achievements = [
 // gallery: tab = Game | Graphic | Website
 export const gallery = {
   Game: [
-    { title: "SiegeCore", role: "Card / Game Design", tools: "Illustrator, Photoshop, InDesign, Figma", image: siegecore, link: "/projects/siegecore", desc: "Gioco di carte strategico su griglia ambientato in un futuro cyberpunk." },
+    { title: "SiegeCore", role: "Game Design", tools: "Game Design, Illustrator, Photoshop, Figma", image: siegecore, link: "/projects/siegecore", desc: "Gioco da tavolo in cui la salute di un'unità è il suo orientamento: ogni danno la ruota di 90°." },
     { title: "Lost But With You", role: "Game Dev / Grafica", tools: "Unity, C#, Figma, Adobe", image: lbwy, link: "https://eventhorizonschool.itch.io/lost-but-with-you", desc: "Un cane viaggia in un mondo spirituale per rincontrare il suo padrone in un 2D puzzle platformer." },
     { title: "Cube Invaders", role: "Game Dev / Grafica", tools: "Unity, C#, Figma, Adobe", image: cube, link: "https://eventhorizonschool.itch.io/cube-invaders", desc: "Proteggi il tuo pianeta cubo di Rubik in questo tower defense spaziale." },
     { title: "Daemons Love and Carnage", role: "Game Dev / Grafica", tools: "Unity, C#, Figma, Adobe", image: dlac, link: "https://eventhorizonschool.itch.io/daemons-love-and-carnage", desc: "Un demone che diventa una spada, tanti cattivoni da picchiare e una sottotrama amorosa." },
