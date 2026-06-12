@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import { motion as Motion } from "framer-motion";
 import { Mail, Code2, Briefcase, Globe } from "lucide-react";
 import Panel from "../components/Panel";
@@ -16,6 +17,22 @@ const container = {
 const PROFILE_CONTACTS = contacts.filter((c) => c.label !== "Portfolio");
 
 function Stats() {
+  // click sul nome -> burst glitch + swap nome/alias
+  const [showAlias, setShowAlias] = useState(false);
+  const [glitching, setGlitching] = useState(false);
+  const timers = useRef([]);
+
+  const toggleName = () => {
+    if (glitching) return;
+    setGlitching(true);
+    timers.current = [
+      setTimeout(() => setShowAlias((a) => !a), 180),
+      setTimeout(() => setGlitching(false), 520),
+    ];
+  };
+
+  const displayName = showAlias ? identity.alias : identity.name;
+
   return (
     <>
       <title>Stats — Gabriele Tomasso</title>
@@ -25,7 +42,18 @@ function Stats() {
       <Motion.div className="stats-grid" variants={container} initial="hidden" animate="show">
         <Panel label="PROFILE" className="profile-card">
           <img className="profile-card__photo" src={identity.photo} alt={identity.name} />
-          <span className="profile-card__name">{identity.name}</span>
+          <button
+            type="button"
+            className="profile-card__name profile-card__name--toggle"
+            onClick={toggleName}
+            aria-label={showAlias ? "Mostra nome" : "Mostra nickname"}
+          >
+            <span className={`glitch glitch--click ${glitching ? "is-glitching" : ""}`}>
+              <span className="glitch__base">{displayName}</span>
+              <span className="glitch__layer glitch__layer--r" aria-hidden="true">{displayName}</span>
+              <span className="glitch__layer glitch__layer--c" aria-hidden="true">{displayName}</span>
+            </span>
+          </button>
           <span className="profile-card__roles">{identity.roles.join(" · ")}</span>
           <span className="profile-card__level">LEVEL <b>{identity.level}</b></span>
           <div className="contacts-row contacts-row--compact">

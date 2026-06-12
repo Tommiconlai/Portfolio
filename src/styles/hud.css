@@ -574,6 +574,67 @@ ul { list-style: none; }
   text-shadow: -2px 0 rgba(0, 229, 255, 0.8), 2px 0 rgba(255, 255, 255, 0.6);
 }
 
+/* ── glitch on click (variante one-shot, es. nome nella profile card) ── */
+.profile-card__name--toggle {
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.profile-card__name--toggle:hover .glitch__base {
+  text-shadow: -1.5px 0 rgba(0, 229, 255, 0.6), 1.5px 0 var(--glow-strong);
+}
+.profile-card__name--toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* idle: layer fermi e nascosti (niente loop come nell'intro) */
+.glitch--click .glitch__base { animation: none; }
+.glitch--click .glitch__layer {
+  animation: none;
+  clip-path: inset(100% 0 0 0);
+}
+
+/* burst al click */
+.glitch--click.is-glitching .glitch__base {
+  animation: glitch-jolt-once 0.5s step-end 1;
+}
+.glitch--click.is-glitching .glitch__layer--r {
+  animation: glitch-burst-r 0.5s step-end 1 both;
+}
+.glitch--click.is-glitching .glitch__layer--c {
+  animation: glitch-burst-c 0.5s step-end 1 both;
+}
+
+@keyframes glitch-burst-r {
+  0% { clip-path: inset(8% 0 78% 0); }
+  20% { clip-path: inset(52% 0 36% 0); }
+  40% { clip-path: inset(74% 0 12% 0); }
+  60% { clip-path: inset(28% 0 58% 0); }
+  80% { clip-path: inset(46% 0 40% 0); }
+  100% { clip-path: inset(100% 0 0 0); }
+}
+
+@keyframes glitch-burst-c {
+  0% { clip-path: inset(64% 0 22% 0); }
+  20% { clip-path: inset(14% 0 72% 0); }
+  40% { clip-path: inset(44% 0 44% 0); }
+  60% { clip-path: inset(70% 0 16% 0); }
+  80% { clip-path: inset(24% 0 64% 0); }
+  100% { clip-path: inset(100% 0 0 0); }
+}
+
+@keyframes glitch-jolt-once {
+  0%, 100% { transform: none; }
+  25% { transform: translateX(-3px) skewX(4deg); }
+  55% { transform: translateX(3px) skewX(-3deg); }
+  80% { transform: none; }
+}
+
 /* ==================== STATS PAGE ==================== */
 .stats-grid {
   display: grid;
