@@ -319,39 +319,21 @@ ul { list-style: none; }
 }
 
 /* ==================== PANEL ==================== */
-/* Ottagono con bordo che segue i tagli + maniglie laterali.
-   clip-path taglia il border nativo, quindi: ::before = strato bordo
-   (colore linea), ::after = riempimento inset di 1px. Funziona perché
-   framer-motion mette transform sul .panel -> stacking context -> gli
-   pseudo a z-index negativo restano dentro al pannello. */
 .panel {
   position: relative;
-  background: transparent;
-  border: none;
-  clip-path: none;
-  padding: var(--sp-lg);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  clip-path: var(--clip-cut);
+  padding: var(--sp-md);
 }
-
 .panel::before {
   content: '';
   position: absolute;
-  inset: 0;
-  z-index: -2;
-  background: var(--line-2);
-  clip-path: var(--clip-panel);
-}
-
-.panel::after {
-  content: '';
-  position: absolute;
-  inset: 1px;
-  z-index: -1;
-  /* maniglie laterali (barrette chiare centrate sui bordi) + fondo */
-  background:
-    linear-gradient(var(--txt-dim), var(--txt-dim)) 0% 50% / 4px min(34%, 130px) no-repeat,
-    linear-gradient(var(--txt-dim), var(--txt-dim)) 100% 50% / 4px min(34%, 130px) no-repeat,
-    var(--panel);
-  clip-path: var(--clip-panel);
+  top: 6px; left: 6px;
+  width: 10px; height: 10px;
+  border-top: 1px solid var(--accent);
+  border-left: 1px solid var(--accent);
+  opacity: 0.7;
 }
 .panel__label {
   display: inline-block;

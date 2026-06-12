@@ -33,6 +33,4 @@
 
   --ease-hud: cubic-bezier(0.22, 1, 0.36, 1);
   --clip-cut: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
-  /* ottagono: tutti e 4 gli angoli tagliati a 45° */
-  --clip-panel: polygon(28px 0%, calc(100% - 28px) 0%, 100% 28px, 100% calc(100% - 28px), calc(100% - 28px) 100%, 28px 100%, 0% calc(100% - 28px), 0% 28px);
 }
