@@ -21,7 +21,7 @@ function Intro() {
         Best experienced with your <b>mouse</b>
       </span>
       <span className="intro__readout intro__readout--br">
-        BUGMOTH_STUDIO<br />PORTFOLIO_v.26<br />STATUS: ONLINE
+        PORTFOLIO_v.26<br />STATUS: ONLINE
       </span>
 
       <Motion.p
