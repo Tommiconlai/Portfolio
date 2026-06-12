@@ -43,6 +43,15 @@ ul { list-style: none; }
   z-index: 50;
 }
 
+/* maschera il bordo esterno: il contenuto che scorre non deve vedersi
+   nella fascia tra il viewport e la cornice */
+.hud-frame::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: var(--frame-pad) solid var(--bg);
+}
+
 .hud-frame__border {
   position: absolute;
   inset: var(--frame-pad);
