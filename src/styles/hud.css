@@ -465,6 +465,115 @@ ul { list-style: none; }
   text-transform: uppercase;
 }
 
+/* ── glitch FX (solo CSS) ── */
+.glitch {
+  position: relative;
+  display: block;
+}
+
+.glitch__base {
+  display: block;
+  animation: glitch-jolt 4.2s infinite step-end;
+}
+
+.glitch__layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.85;
+  /* nascosto di default: i keyframes aprono brevi "fette" */
+  clip-path: inset(100% 0 0 0);
+}
+
+/* i layer sono monocromatici: sovrascrivo anche lo span .accent interno */
+.glitch__layer--r,
+.glitch__layer--r .accent {
+  color: var(--accent);
+  text-shadow: -2px 0 var(--accent);
+}
+.glitch__layer--c,
+.glitch__layer--c .accent {
+  color: #00e5ff;
+  text-shadow: 2px 0 #00e5ff;
+}
+
+.glitch__layer--r {
+  transform: translate(-4px, 2px);
+  animation: glitch-slice-r 3.1s infinite step-end;
+}
+.glitch__layer--c {
+  transform: translate(4px, -2px);
+  animation: glitch-slice-c 2.7s infinite step-end 0.9s;
+}
+
+@keyframes glitch-slice-r {
+  0%, 86% { clip-path: inset(100% 0 0 0); }
+  87% { clip-path: inset(8% 0 78% 0); }
+  89% { clip-path: inset(52% 0 36% 0); }
+  91% { clip-path: inset(74% 0 12% 0); }
+  93% { clip-path: inset(28% 0 58% 0); }
+  95%, 100% { clip-path: inset(100% 0 0 0); }
+}
+
+@keyframes glitch-slice-c {
+  0%, 88% { clip-path: inset(100% 0 0 0); }
+  89% { clip-path: inset(64% 0 22% 0); }
+  91% { clip-path: inset(14% 0 72% 0); }
+  93% { clip-path: inset(44% 0 44% 0); }
+  95%, 100% { clip-path: inset(100% 0 0 0); }
+}
+
+/* scossone occasionale del titolo */
+@keyframes glitch-jolt {
+  0%, 91% { transform: none; }
+  92% { transform: translateX(-3px) skewX(3deg); }
+  93% { transform: translateX(3px) skewX(-2deg); }
+  94% { transform: none; }
+}
+
+/* flicker dei readout mono */
+.intro__readout {
+  animation: readout-flicker 6s infinite step-end;
+}
+.intro__readout--br { animation-delay: 2.4s; }
+
+@keyframes readout-flicker {
+  0%, 93% { opacity: 0.7; }
+  94% { opacity: 0.2; }
+  95% { opacity: 0.75; }
+  96% { opacity: 0.3; }
+  97%, 100% { opacity: 0.7; }
+}
+
+/* riga di tear che spazza lo schermo */
+.intro__tear {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 3px;
+  background: linear-gradient(to right, transparent, rgba(229, 35, 43, 0.5) 30%, rgba(0, 229, 255, 0.4) 70%, transparent);
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+  animation: intro-tear 7s infinite;
+}
+
+@keyframes intro-tear {
+  0%, 81% { opacity: 0; top: 12%; }
+  82% { opacity: 1; top: 18%; }
+  86% { opacity: 0.9; top: 64%; }
+  90% { opacity: 0; top: 86%; }
+  100% { opacity: 0; top: 86%; }
+}
+
+/* aberrazione cromatica su hover START */
+.intro__start:hover {
+  text-shadow: -2px 0 rgba(0, 229, 255, 0.8), 2px 0 rgba(255, 255, 255, 0.6);
+}
+
 /* ==================== STATS PAGE ==================== */
 .stats-grid {
   display: grid;
@@ -684,5 +793,6 @@ ul { list-style: none; }
 /* ==================== REDUCED MOTION ==================== */
 @media (prefers-reduced-motion: reduce) {
   .hud-scanline { animation: none; display: none; }
+  .glitch__layer, .intro__tear { display: none; }
   * { animation-duration: 0.001ms !important; transition-duration: 0.05ms !important; }
 }

@@ -14,6 +14,9 @@ function Intro() {
     >
       <title>Gabriele Tomasso — Portfolio</title>
 
+      {/* barra di "tear" orizzontale che spazza lo schermo a intervalli */}
+      <span className="intro__tear" aria-hidden="true" />
+
       <span className="intro__readout intro__readout--tl">
         SYS_BOOT // OK<br />CHARGE ▰▰▰▰▰ 100%<br />ENERGY_LEAK: NONE
       </span>
@@ -38,7 +41,12 @@ function Intro() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 0.3, duration: 0.5 }}
       >
-        My <span className="accent">Portfolio</span>
+        {/* glitch: base + due layer cromatici clip-slice (solo CSS) */}
+        <span className="glitch">
+          <span className="glitch__base">My <span className="accent">Portfolio</span></span>
+          <span className="glitch__layer glitch__layer--r" aria-hidden="true">My <span className="accent">Portfolio</span></span>
+          <span className="glitch__layer glitch__layer--c" aria-hidden="true">My <span className="accent">Portfolio</span></span>
+        </span>
       </Motion.h1>
 
       <Motion.button
