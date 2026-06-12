@@ -18,3 +18,10 @@ export { default as rangeAzione } from './Range azione.svg';
 export { default as schivata } from './Schivata.svg';
 export { default as segnalinoScudo } from './Segnalino Scudo.svg';
 export { default as stordimento } from './Stordimento.svg';
+
+// Game Components
+export { default as card } from './unit_card.png';
+export { default as playerBoard } from './board.png';
+export { default as structureCard } from './structure_card.png';
+export { default as leaderCard } from './Yinger_Rofrien.png';
+export {default as iconsWhite} from './icons.png';

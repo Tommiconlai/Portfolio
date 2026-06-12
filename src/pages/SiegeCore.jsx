@@ -1,16 +1,9 @@
-import { useState } from "react";
 import IconItem from "../components/IconItem";
 import RotationDemo from "../components/RotationDemo";
 import * as siegecore from "../assets/siegecore";
-import siegecoreLogo from "../assets/siegecore_logo.png";
 import "../styles/siegecore.css";
 
 const {
-    cardAnatomyEffect,
-    cardAnatomyLayout,
-    cardAnatomyStats,
-    cardAnatomyMovement,
-    cardAnatomyIllustration,
     attaccoAutomatico,
     aumentoForza,
     aumentoVelocita,
@@ -23,6 +16,11 @@ const {
     schivata,
     segnalinoScudo,
     stordimento,
+    card,
+    playerBoard,
+    structureCard,
+    leaderCard,
+    iconsWhite,
 } = siegecore;
 
 const EFFECT_ICONS = [
@@ -49,9 +47,14 @@ const FACTIONS = [
     { name: "CYBERPUNK", color: "#b14cff", desc: "Il potenziale di tutte le fazioni, bloccato: sblocca gli effetti con l'Impianto." },
 ];
 
-function SiegeCore() {
-    const [isActive, setIsActive] = useState(false);
+const GALLERY = [
+    { src: leaderCard, label: "Carta leader — Yinger / Rofrien" },
+    { src: card, label: "Carta unità" },
+    { src: structureCard, label: "Struttura" },
+    { src: playerBoard, label: "Plancia" },
+];
 
+function SiegeCore() {
     return (
         <div className="siegecore-page siege-case">
             <title>SiegeCore — Gabriele Tomasso</title>
@@ -68,7 +71,7 @@ function SiegeCore() {
                     <h1 className="siege-hero__title">SIEGECORE</h1>
                     <p className="siege-hero__tagline">Il danno non uccide. Disorienta.</p>
                     <p className="siege-hero__role">
-                        Game design · Graphic design · Iconografia — Progetto personale, Bugmoth Studio
+                        Game design · Graphic design · Iconografia — Progetto personale
                     </p>
                     <ul className="siege-chips">
                         <li>2–4 giocatori</li>
@@ -95,36 +98,10 @@ function SiegeCore() {
                 <p className="siege-sec__lead">
                     Prova tu: ogni danno ruota l'unità e cambia le caselle che può raggiungere.
                 </p>
-                <RotationDemo />
+                <RotationDemo cardImage={card} />
             </section>
 
-            {/* ───────── 4. ANATOMIA DELLA CARTA (esistente, refactor) ───────── */}
-            <section className="siege-sec card-anatomy">
-                <h2>Anatomia della Carta</h2>
-                <p className="siege-sec__lead">
-                    Ogni elemento è posizionato per restare leggibile in tutti e quattro gli orientamenti:
-                    il <strong>Livello (Lv)</strong> e la <strong>POW</strong> agli angoli, le{" "}
-                    <strong>frecce di direzione</strong> sul bordo, l'<strong>effetto</strong> al centro.
-                    La gerarchia visiva è stata pensata attorno alla rotazione, non nonostante essa.
-                </p>
-                <div className="card-anatomy-content">
-                    <div className={`card ${isActive ? "active" : ""}`}>
-                        <img className="card-anatomy-illustration" src={cardAnatomyIllustration} alt="" />
-                        <img className="card-anatomy-effect" src={cardAnatomyEffect} alt="" />
-                        <img className="card-anatomy-layout" src={cardAnatomyLayout} alt="" />
-                        <img className="card-anatomy-stats" src={cardAnatomyStats} alt="" />
-                        <img className="card-anatomy-movement" src={cardAnatomyMovement} alt="" />
-                    </div>
-                </div>
-                <button
-                    className={`card-btn ${isActive ? "active" : ""}`}
-                    onClick={() => setIsActive((v) => !v)}
-                >
-                    {isActive ? "Chiudi" : "Scopri di più"}
-                </button>
-            </section>
-
-            {/* ───────── 5. LE QUATTRO FAZIONI ───────── */}
+            {/* ───────── 4. LE QUATTRO FAZIONI ───────── */}
             <section className="siege-sec siege-factions">
                 <h2>Le quattro fazioni</h2>
                 <div className="faction-grid">
@@ -140,7 +117,7 @@ function SiegeCore() {
                 </div>
             </section>
 
-            {/* ───────── 6. IL PROCESSO DI DESIGN ───────── */}
+            {/* ───────── 5. IL PROCESSO DI DESIGN ───────── */}
             <section className="siege-sec siege-process">
                 <h2>Il processo di design</h2>
                 <div className="process-grid">
@@ -155,13 +132,8 @@ function SiegeCore() {
                     </article>
 
                     <article className="process">
-                        {/* TODO(gabriele): export delle icone su sfondo neutro. */}
                         <div className="process__media">
-                            <div className="card-icons-grid process__icons">
-                                {EFFECT_ICONS.slice(0, 6).map((ic) => (
-                                    <IconItem key={ic.label} src={ic.src} alt={ic.label} label={ic.label} />
-                                ))}
-                            </div>
+                            <img src={iconsWhite} alt="Set completo delle icone effetto" />
                         </div>
                         <h3>Iconografia</h3>
                         <p>
@@ -171,8 +143,9 @@ function SiegeCore() {
                     </article>
 
                     <article className="process">
-                        {/* TODO(gabriele): immagine del campo/plancia schematizzato. */}
-                        <div className="process__media process__media--placeholder">Plancia 6×6 + 4×(1×6)</div>
+                        <div className="process__media">
+                            <img src={playerBoard} alt="Plancia di gioco modulare" />
+                        </div>
                         <h3>Sistema carte e plancia</h3>
                         <p>
                             Layout della carta leggibile in ogni rotazione; plancia modulare 6×6 con quattro
@@ -182,7 +155,7 @@ function SiegeCore() {
                 </div>
             </section>
 
-            {/* ───────── 7. ICONOGRAFIA COMPLETA ───────── */}
+            {/* ───────── 6. ICONOGRAFIA COMPLETA ───────── */}
             <section className="siege-sec card-explanation">
                 <h2>Set di iconografia</h2>
                 <div className="card-icons-grid">
@@ -192,13 +165,16 @@ function SiegeCore() {
                 </div>
             </section>
 
-            {/* ───────── 8. GALLERIA COMPONENTI ───────── */}
+            {/* ───────── 7. GALLERIA COMPONENTI ───────── */}
             <section className="siege-sec siege-gallery">
                 <h2>Galleria componenti</h2>
                 <div className="siege-gallery__grid">
-                    {/* TODO(gabriele): aggiungere carta leader (Yinger/Roerien), unità, struttura, plancia. */}
-                    <img src={siegecoreLogo} alt="Logo SiegeCore" />
-                    <img src={cardAnatomyIllustration} alt="Illustrazione carta" />
+                    {GALLERY.map((g) => (
+                        <figure className="siege-gallery__item" key={g.label}>
+                            <img src={g.src} alt={g.label} />
+                            <figcaption>{g.label}</figcaption>
+                        </figure>
+                    ))}
                 </div>
                 <p className="siege-disclaimer">
                     Le illustrazioni del prototipo sono placeholder generati con AI; l'identità visiva, il
@@ -206,7 +182,7 @@ function SiegeCore() {
                 </p>
             </section>
 
-            {/* ───────── 9. STATO + CTA ───────── */}
+            {/* ───────── 8. STATO + CTA ───────── */}
             <section className="siege-sec siege-cta">
                 <p className="siege-status">
                     Regolamento v1.0 completo · Playtestato in cieco (circuito IDEAG) · In cerca di editore

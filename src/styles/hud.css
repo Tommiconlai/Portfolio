@@ -168,6 +168,18 @@ ul { list-style: none; }
   box-shadow: 0 0 8px var(--glow);
 }
 
+/* window mode: header come barra del titolo di una finestra */
+.hud-header--window {
+  justify-content: space-between;
+}
+.hud-header__winname {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
 .hud-winctl { display: flex; gap: 8px; }
 .hud-winctl button {
   width: 22px; height: 22px;
@@ -302,6 +314,11 @@ ul { list-style: none; }
            calc(var(--frame-pad) + var(--nav-h) + var(--sp-lg));
   max-width: 1500px;
   margin: 0 auto;
+}
+
+/* window mode: niente nav bassa -> meno padding sotto */
+.hud-content--window {
+  padding-bottom: calc(var(--frame-pad) + var(--sp-lg));
 }
 
 .page-head {

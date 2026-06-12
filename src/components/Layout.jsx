@@ -11,13 +11,17 @@ export default function Layout() {
   const location = useLocation();
   useTabKeys();
 
-  return (
-    <div className="app-shell">
-      <HudFrame />
-      <HudHeader />
-      <QuickTips />
+  // Le route di dettaglio progetto diventano una "finestra PC":
+  // niente nav bassa né QuickTips, header ridotto ai soli window controls.
+  const windowMode = location.pathname.startsWith("/projects");
 
-      <main className="hud-content">
+  return (
+    <div className={`app-shell ${windowMode ? "app-shell--window" : ""}`}>
+      <HudFrame />
+      <HudHeader windowMode={windowMode} />
+      {!windowMode && <QuickTips />}
+
+      <main className={`hud-content ${windowMode ? "hud-content--window" : ""}`}>
         <AnimatePresence mode="wait">
           <Motion.div
             key={location.pathname}
@@ -31,7 +35,7 @@ export default function Layout() {
         </AnimatePresence>
       </main>
 
-      <HudNav />
+      {!windowMode && <HudNav />}
     </div>
   );
 }

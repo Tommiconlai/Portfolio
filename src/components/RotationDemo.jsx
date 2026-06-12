@@ -9,8 +9,8 @@ import { useState } from "react";
  * via CSS transition. `prefers-reduced-motion` disattiva l'animazione
  * tramite la media query in CSS (non serve logica JS).
  *
- * TODO(gabriele): sostituire la carta vettoriale segnaposto con l'asset
- * reale del "Viandante di Cryo" in buona risoluzione.
+ * `cardImage` = asset reale della carta unità (ruota con il danno). Senza
+ * immagine viene mostrata una carta vettoriale segnaposto.
  */
 
 // Direzioni di movimento base (carta dritta). Set asimmetrico così la
@@ -36,7 +36,7 @@ const STATES = {
   3: { label: "DISTRUTTA", angle: 270 },
 };
 
-function RotationDemo() {
+function RotationDemo({ cardImage }) {
   const [damage, setDamage] = useState(0);
 
   const destroyed = damage >= 3;
@@ -60,20 +60,23 @@ function RotationDemo() {
           ))}
         </div>
 
-        {/* carta vettoriale segnaposto: ruota con il danno */}
+        {/* carta unità: ruota con il danno */}
         <div
           className={`rotdemo__card ${destroyed ? "destroyed" : ""}`}
           style={{ "--angle": `${state.angle}deg` }}
         >
-          <div className="rotdemo__card-inner">
-            <span className="rotdemo__lv">Lv 3</span>
-            <span className="rotdemo__pow">POW 2</span>
-            <span className="rotdemo__name">Viandante di Cryo</span>
-            {/* frecce direzione stampate sulla carta (ruotano con essa) */}
-            <span className="rotdemo__arrow rotdemo__arrow--n">▲</span>
-            <span className="rotdemo__arrow rotdemo__arrow--ne">◥</span>
-            <span className="rotdemo__arrow rotdemo__arrow--e">▶</span>
-          </div>
+          {cardImage ? (
+            <img className="rotdemo__card-img" src={cardImage} alt="Carta unità SiegeCore" />
+          ) : (
+            <div className="rotdemo__card-inner">
+              <span className="rotdemo__lv">Lv 3</span>
+              <span className="rotdemo__pow">POW 2</span>
+              <span className="rotdemo__name">Viandante di Cryo</span>
+              <span className="rotdemo__arrow rotdemo__arrow--n">▲</span>
+              <span className="rotdemo__arrow rotdemo__arrow--ne">◥</span>
+              <span className="rotdemo__arrow rotdemo__arrow--e">▶</span>
+            </div>
+          )}
         </div>
       </div>
 

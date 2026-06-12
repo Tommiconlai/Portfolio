@@ -155,6 +155,15 @@
   animation: rotdemo-glitch 0.45s steps(3) forwards;
 }
 
+.rotdemo__card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 20px var(--glow));
+}
+
 .rotdemo__card-inner {
   position: absolute;
   inset: 0;
@@ -323,12 +332,25 @@
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: var(--sp-md);
 }
-.siege-gallery__grid img {
+.siege-gallery__item { margin: 0; }
+.siege-gallery__item img {
   width: 100%;
   border: 1px solid var(--line);
   background: var(--bg-2);
   object-fit: contain;
   aspect-ratio: 4 / 3;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.siege-gallery__item img:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 18px var(--glow);
+}
+.siege-gallery__item figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--txt-dim);
+  margin-top: 6px;
 }
 .siege-disclaimer {
   margin-top: var(--sp-md);
