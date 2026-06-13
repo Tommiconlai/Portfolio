@@ -11,7 +11,7 @@ Portfolio personale di **Gabriele "Tommi" Tomasso** (`tommiconlai`) — UI/UX de
 
 ```
 src/
-  App.jsx                 # router: / = Intro (no shell), resto dentro <Layout>
+  App.jsx                 # router: / = Intro (no shell), resto dentro <Layout>, * = NotFound (404)
   data/profile.js         # TUTTI i contenuti (identity, contacts, skills, bio, quests, achievements, gallery)
   hooks/useTabKeys.js     # NAV_ORDER (stats/quests/achievements/gallery) + Esc -> hero
   components/
@@ -28,6 +28,7 @@ src/
     Achievements.jsx      # formazione; STESSO layout di Quests (lista, pill UNLOCKED) — niente più grid/HexIcon
     Gallery.jsx           # tab Game/Graphic/Website; card keyboard-accessibili; modale in portal
     SiegeCore.jsx         # case study completo; VectorPage.jsx (legacy, rotta /projects/vector)
+    NotFound.jsx          # 404 HUD ("// SIGNAL_LOST"); catch-all <Route path="*"> dentro Layout
   styles/
     tokens.css            # design token (--accent, --accent-text #ff4047 per testo piccolo AA, --panel, --line, font, --clip-cut, --frame-pad 18px)
     hud.css               # tutto lo shell + pagine HUD + glitch + 3D buttons + responsive <900px
@@ -47,6 +48,7 @@ src/
 - **Mobile** (<900px): nav scrollabile con tab attiva auto-centrata (`scrollIntoView` + padding `calc(50vw - 70px)`), fix overlap intro/quests.
 - **A11y**: `prefers-reduced-motion` rispettato ovunque (FX nascosti/istantanei), focus-visible, aria-label/aria-live. Testo rosso piccolo usa **`--accent-text` (#ff4047)** non `--accent` → WCAG AA ≥4.5:1 (page-head, panel__label, ruoli, gmodal__meta, ecc.); `--accent` resta per fill/bordi/glow. Gallery card e tab navigabili da tastiera; modale con focus-trap base.
 - **Performance**: PNG pesanti ricompressi in place (palette quantization + downscale, ~4.7MB risparmiati — Yinger_Rofrien 2.3MB→196KB); gallery thumbnail `loading="lazy"` + `decoding="async"`. Asset orfani `card-anatomy-*` (sezione rimossa) + relativi export/CSS eliminati.
+- **404 + viewport**: rotta catch-all `*` dentro Layout → `NotFound.jsx` (404 HUD "// SIGNAL_LOST", CTA "TORNA ALLA BASE", nav presente per uscire); `HudHeader` mostra `404` invece di ripiegare sul primo tab. Shell passata a `min-height: 100dvh` (`.app-shell`, `.hud-content`) per evitare il jump viewport iOS Safari.
 - Vecchio sito (HomePage/CVPage/ProjectsPage/Header/Footer/CookieBanner) **eliminato**; CSS morto rimosso (−1381 righe).
 
 ## Convenzioni
@@ -80,7 +82,7 @@ src/
 
 - **Cache vite stale dopo operazioni git** (checkout/revert/cherry-pick): moduli vecchi serviti → `rm -rf node_modules/.vite` + riavvio dev server.
 - `gh` CLI **non installato** → niente PR da terminale (installare con `winget install GitHub.cli`).
-- `lucide-react` ha rimosso le icone brand → GitHub/LinkedIn mappate su Code2/Briefcase in `Stats.jsx` (icona generica, label testuale salva la riconoscibilità).
+- `lucide-react` non ha icone brand → GitHub/LinkedIn ora usano `react-icons` (`FaGithub`/`FaLinkedinIn` da `react-icons/fa6`, glifi reali riconoscibili) dentro `HexIcon` in `Stats.jsx`; `Mail`/`Globe` restano lucide per coerenza di tratto.
 - `dist/` è tracciato nel repo (deploy gh-pages); `node_modules` parzialmente tracciato da prima del .gitignore — non committare il churn. `npm install` può sporcare `node_modules/.package-lock.json` (tracciato): ripristinarlo con `git checkout -- node_modules/.package-lock.json`.
 - **PowerShell + `git commit -m`**: gli here-string `@'...'@` con `"` o `()` interni si rompono (PowerShell li passa a git come arg separati → `pathspec did not match`). Usare `git commit -F <file>` con il messaggio su file.
 - **Immagini**: niente tool tipo `sharp`/`magick` installati di default. Per ricompressioni one-off: `npm install sharp --no-save` (resta in `node_modules` gitignored, niente churn tracciato), poi script + rimuovi. `Yinger_Rofrien.png` già ricompresso 2.3MB→196KB.
