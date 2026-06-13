@@ -275,7 +275,6 @@ ul { list-style: none; }
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--line);
   padding: 12px 20px;
-  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
   transition: all 0.25s var(--ease-hud);
 }
 .hud-tab:hover { color: var(--txt); border-color: var(--line-2); box-shadow: 0 0 14px rgba(229, 35, 43, 0.15); }
@@ -323,7 +322,6 @@ ul { list-style: none; }
   position: relative;
   background: var(--panel);
   border: 1px solid var(--line);
-  clip-path: var(--clip-cut);
   padding: var(--sp-md);
 }
 .panel::before {
@@ -449,22 +447,62 @@ ul { list-style: none; }
 }
 .intro__title .accent { color: var(--accent); display: block; }
 
+/* bottone START: sagoma SVG (outline trapezio + pannello + ali laterali) */
 .intro__start {
   position: relative;
+  width: min(360px, 80vw);
+  height: 90px;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.3rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: #fff;
-  background: var(--accent);
+  background: transparent;
   border: none;
-  padding: 16px 60px;
-  clip-path: polygon(16px 0%, 100% 0%, calc(100% - 16px) 100%, 0% 100%);
-  box-shadow: 0 0 30px var(--glow-strong);
-  transition: all 0.25s var(--ease-hud);
+  padding: 0;
+  filter: drop-shadow(0 0 18px var(--glow));
+  transition: filter 0.25s var(--ease-hud);
 }
-.intro__start:hover { filter: brightness(1.15); transform: scale(1.04); }
+
+.intro__start-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.start-outline {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.start-fill {
+  fill: #2b0b0f;
+  stroke: rgba(229, 35, 43, 0.45);
+  stroke-width: 1;
+  transition: fill 0.25s var(--ease-hud);
+}
+
+.start-wing {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px var(--glow-strong));
+}
+
+.intro__start-label {
+  position: relative;
+  z-index: 1;
+}
+
+.intro__start:hover {
+  filter: drop-shadow(0 0 28px var(--glow-strong)) brightness(1.12);
+}
+.intro__start:hover .start-fill { fill: #46121a; }
+.intro__start:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
 .intro__hint {
   margin-top: var(--sp-md);
   font-family: var(--font-mono);

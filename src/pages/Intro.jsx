@@ -58,7 +58,19 @@ function Intro() {
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.97 }}
       >
-        START
+        {/* sagoma sci-fi: outline trapezio + pannello interno + ali sui lati */}
+        <svg
+          className="intro__start-svg"
+          viewBox="0 0 400 100"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path className="start-outline" d="M16 6 L384 6 L318 88 L82 88 Z" />
+          <path className="start-fill" d="M48 16 L352 16 L302 78 L98 78 Z" />
+          <path className="start-wing" d="M29 20 L43 20 L95 84 L81 84 Z" />
+          <path className="start-wing" d="M371 20 L357 20 L305 84 L319 84 Z" />
+        </svg>
+        <span className="intro__start-label">START</span>
       </Motion.button>
       <p className="intro__hint">Click START to view</p>
     </Motion.div>
