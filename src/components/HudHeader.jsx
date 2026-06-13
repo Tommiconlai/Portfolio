@@ -1,5 +1,4 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { ChevronLeft } from "lucide-react";
 import { NAV_ORDER } from "../hooks/useTabKeys";
 
 function HudHeader({ windowMode = false }) {
@@ -27,10 +26,6 @@ function HudHeader({ windowMode = false }) {
 
   return (
     <header className="hud-header">
-      <button className="hud-header__back" onClick={() => navigate(-1)} aria-label="Indietro">
-        <ChevronLeft size={14} /> BACK
-      </button>
-
       <span className="hud-header__crumb">
         CV / <b>GABRIELE_TOMASSO</b>
       </span>
