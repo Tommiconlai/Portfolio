@@ -1,12 +1,14 @@
 import { useRef, useState } from "react";
 import { motion as Motion } from "framer-motion";
-import { Mail, Code2, Briefcase, Globe } from "lucide-react";
+import { Mail, Globe } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import Panel from "../components/Panel";
 import HexIcon from "../components/HexIcon";
 import { identity, contacts, skills, bio } from "../data/profile";
 
-// lucide ha rimosso le icone brand: mappo i nomi-profilo a icone generiche.
-const ICONS = { Mail, Github: Code2, Linkedin: Briefcase, Globe };
+// lucide non ha icone brand: GitHub/LinkedIn arrivano da react-icons (glifi
+// reali, riconoscibili); Mail/Globe restano lucide per coerenza di tratto.
+const ICONS = { Mail, Github: FaGithub, Linkedin: FaLinkedinIn, Globe };
 
 const container = {
   hidden: {},

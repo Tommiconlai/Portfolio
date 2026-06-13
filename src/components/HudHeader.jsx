@@ -37,7 +37,7 @@ function HudHeader({ windowMode = false }) {
         CV / <b>GABRIELE_TOMASSO</b>
       </span>
 
-      <h1 className="hud-header__title">{current.label}</h1>
+      <h1 className="hud-header__title">{idx === -1 ? "404" : current.label}</h1>
 
       <div className="hud-progress" aria-hidden="true">
         {NAV_ORDER.map((n, i) => (

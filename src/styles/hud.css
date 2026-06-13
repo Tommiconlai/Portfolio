@@ -28,7 +28,7 @@ ul { list-style: none; }
 /* radial backdrop */
 .app-shell {
   position: relative;
-  min-height: 100vh;
+  min-height: 100dvh;
   background:
     radial-gradient(ellipse 90% 70% at 50% 0%, #1a0306 0%, transparent 55%),
     radial-gradient(ellipse 80% 80% at 80% 100%, #12030a 0%, transparent 60%),
@@ -240,7 +240,7 @@ ul { list-style: none; }
 .hud-content {
   position: relative;
   z-index: 10;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: calc(var(--frame-pad) + var(--header-h) + var(--sp-lg))
            calc(var(--frame-pad) + var(--sp-lg))
            calc(var(--frame-pad) + var(--nav-h) + var(--sp-lg));
@@ -920,6 +920,60 @@ ul { list-style: none; }
 }
 .gmodal__link:hover { background: var(--accent); color: #fff; }
 
+/* ==================== 404 / SIGNAL LOST ==================== */
+.notfound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--sp-sm);
+  min-height: 52vh;
+  padding: var(--sp-xl) var(--sp-md);
+}
+.notfound__code {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(4.5rem, 17vw, 9.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  text-shadow: 0 0 44px var(--glow);
+}
+.notfound__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 4vw, 1.7rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.notfound__msg {
+  font-family: var(--font-body);
+  color: var(--txt-dim);
+  max-width: 46ch;
+  text-wrap: pretty;
+}
+.notfound__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: var(--sp-sm);
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  clip-path: var(--clip-cut);
+  box-shadow: 0 0 16px var(--glow);
+  transition: background 0.2s var(--ease-hud), box-shadow 0.2s var(--ease-hud),
+    transform 0.2s var(--ease-hud), filter 0.2s var(--ease-hud);
+}
+.notfound__back:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
 /* ==================== 3D BUTTONS ==================== */
 /* effetto "tasto fisico": su hover il bottone si inclina all'indietro
    (cerniera sul bordo basso), su :active affonda */
@@ -927,7 +981,8 @@ ul { list-style: none; }
 .gallery-tab,
 .rotdemo__btn,
 .btn-cta,
-.profile-card__cta {
+.profile-card__cta,
+.notfound__back {
   transform-origin: 50% 100%;
 }
 
@@ -935,7 +990,8 @@ ul { list-style: none; }
 .gallery-tab:hover,
 .rotdemo__btn:hover:not(:disabled),
 .btn-cta:hover,
-.profile-card__cta:hover {
+.profile-card__cta:hover,
+.notfound__back:hover {
   transform: perspective(420px) rotateX(13deg) translateY(-2px);
   box-shadow: 0 8px 14px rgba(0, 0, 0, 0.45), 0 0 14px var(--glow);
 }
@@ -944,7 +1000,8 @@ ul { list-style: none; }
 .gallery-tab:active,
 .rotdemo__btn:active:not(:disabled),
 .btn-cta:active,
-.profile-card__cta:active {
+.profile-card__cta:active,
+.notfound__back:active {
   transform: perspective(420px) rotateX(20deg) translateY(1px) scale(0.98);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 0 10px var(--glow);
   filter: brightness(0.92);
