@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion as Motion } from "framer-motion";
 import { gallery } from "../data/profile";
@@ -66,7 +67,10 @@ function Gallery() {
         ))}
       </Motion.div>
 
-      <AnimatePresence>
+      {/* portal: il wrapper di rotta ha filter inline (containing block per
+          fixed) — su body il backdrop copre davvero il viewport, sopra header/nav */}
+      {createPortal(
+        <AnimatePresence>
         {active && (
           <Motion.div
             className="gmodal-backdrop"
@@ -103,7 +107,9 @@ function Gallery() {
             </Motion.div>
           </Motion.div>
         )}
-      </AnimatePresence>
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 }
