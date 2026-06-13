@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion as Motion } from "framer-motion";
@@ -19,6 +19,22 @@ function Gallery() {
   const [tab, setTab] = useState("Game");
   const [active, setActive] = useState(null);
   const items = gallery[tab] || [];
+  const modalRef = useRef(null);
+  const triggerRef = useRef(null); // card che ha aperto la modale, per riportarci il focus
+
+  const openProject = (p, e) => {
+    triggerRef.current = e.currentTarget;
+    setActive(p);
+  };
+  const closeModal = () => {
+    setActive(null);
+    triggerRef.current?.focus?.();
+  };
+
+  // all'apertura porta il focus nella modale (così Esc/tab restano dentro)
+  useEffect(() => {
+    if (active) modalRef.current?.focus();
+  }, [active]);
 
   return (
     <>
@@ -48,9 +64,18 @@ function Gallery() {
         {items.map((p, i) => (
           <Motion.div
             className="gcard"
+            role="button"
+            tabIndex={0}
+            aria-label={`Apri dettagli: ${p.title}`}
             key={p.title + i}
             variants={item}
-            onClick={() => setActive(p)}
+            onClick={(e) => openProject(p, e)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                openProject(p, e);
+              }
+            }}
             whileHover={{ y: -4 }}
           >
             {p.image ? (
@@ -80,15 +105,27 @@ function Gallery() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setActive(null)}
+            onClick={closeModal}
           >
             <Motion.div
               className="gmodal"
+              ref={modalRef}
+              tabIndex={-1}
+              role="dialog"
+              aria-modal="true"
+              aria-label={active.title}
               initial={{ opacity: 0, y: 20, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 20, scale: 0.97 }}
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
+              onKeyDown={(e) => {
+                // Esc chiude la modale e NON propaga (altrimenti useTabKeys porta a home)
+                if (e.key === "Escape") {
+                  e.stopPropagation();
+                  closeModal();
+                }
+              }}
             >
               {active.image && <img className="gmodal__img" src={active.image} alt={active.title} />}
               <h2>{active.title}</h2>
