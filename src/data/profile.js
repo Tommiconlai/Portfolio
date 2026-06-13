@@ -1,6 +1,4 @@
-// ==================== CONTENUTI PORTFOLIO ====================
-// Tutti i testi del sito in un unico posto. Aggiorna qui.
-// TODO [INPUT GABRIELE]: voci marcate sotto da verificare/completare.
+// CONTENUTI PORTFOLIO
 
 import photo from "../assets/just_me.jpg";
 import photoAlias from "../assets/me_alias.jpg";
@@ -19,7 +17,6 @@ export const identity = {
   location: "Cinisello Balsamo, IT",
 };
 
-// TODO [INPUT GABRIELE]: inserire URL reali (Behance assente).
 export const contacts = [
   { label: "Email", icon: "Mail", href: "mailto:tomasso.job@gmail.com" },
   { label: "GitHub", icon: "Github", href: "https://github.com/tommiconlai" },
@@ -40,20 +37,19 @@ export const bio = [
   "Ogni progetto nasce con un occhio alla user experience e l'altro alla pulizia del codice.",
 ];
 
-// TODO [INPUT GABRIELE]: verificare/correggere voci ed estremi temporali.
 export const quests = [
-  {
-    title: "Barista",
-    org: "Edelweiss Bar",
-    date: "in corso",
-    status: "active",
-    bullets: ["Servizio clienti", "Gestione cassa e postazione"],
-  },
   {
     title: "Freelance Graphic Designer",
     date: "in corso",
     status: "active",
     bullets: ["Progetti web e grafici per clienti", "Identità visive e UI/UX"],
+  },
+  {
+    title: "Barista",
+    org: "Edelweiss Bar",
+    date: "Mar 2026 - Giu 2026",
+    status: "done",
+    bullets: ["Servizio clienti", "Gestione cassa e postazione"],
   },
   {
     title: "Developer Intern",
