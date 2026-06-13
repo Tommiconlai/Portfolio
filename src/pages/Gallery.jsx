@@ -54,7 +54,7 @@ function Gallery() {
             whileHover={{ y: -4 }}
           >
             {p.image ? (
-              <img className="gcard__img" src={p.image} alt={p.title} />
+              <img className="gcard__img" src={p.image} alt={p.title} loading="lazy" decoding="async" />
             ) : (
               <div className="gcard__img-fallback">{p.title}</div>
             )}

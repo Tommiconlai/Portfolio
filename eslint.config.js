@@ -5,7 +5,8 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  // dist = build; .github|.claude/skills = vendored impeccable tooling (terze parti, non lintare)
+  globalIgnores(['dist', '.github/skills', '.claude/skills']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
