@@ -19,7 +19,7 @@ src/
     HudFrame.jsx          # cornice fissa, brackets, scanline; ::before maschera il gutter esterno
     HudHeader.jsx         # header; in windowMode = barra finestra "SIEGECORE.EXE" + _ □ ×
     HudNav.jsx            # tab bottom; su mobile scrolla e auto-centra la tab attiva
-    QuickTips.jsx, Panel.jsx, HexIcon.jsx, IconItem.jsx, ScrollToTop.jsx
+    Panel.jsx, HexIcon.jsx, IconItem.jsx, ScrollToTop.jsx
     RotationDemo.jsx      # demo interattiva SiegeCore (CSS puro, no dep)
   pages/
     Intro.jsx             # hero "MY PORTFOLIO" + START; glitch FX; tilt 3D
@@ -35,7 +35,7 @@ src/
 
 ## Funzionalità implementate
 
-- **Shell HUD persistente**: solo l'Outlet anima al cambio rotta (fade+slide+blur). Route `/projects/*` = "finestra PC": niente nav/QuickTips, header ridotto a titolo `*.EXE` + 3 window controls.
+- **Shell HUD persistente**: solo l'Outlet anima al cambio rotta (fade+slide+blur). Route `/projects/*` = "finestra PC": niente nav, header ridotto a titolo `*.EXE` + 3 window controls.
 - **Intro**: glitch CSS sul titolo (2 layer cromatici rosso/ciano con slice `clip-path` su loop sfasati), flicker readouts, tear line; bottone **START** = SVG trapezio con ali glow. **Tilt 3D di pagina**: mousemove su `.intro` (throttle rAF) ruota ogni elemento `[data-tilt]` verso il puntatore rispetto al proprio centro (clamp ±½ elemento; `data-tilt` = moltiplicatore intensità). CSS vars `--rx/--ry` consumate dalla regola `.tilt-3d` (`perspective()` inline) o dal wrapper del bottone (`preserve-3d`, label a `translateZ(30px)`); i layer glitch del titolo flottano a `translateZ(30/14px)`.
 - **Stats**: click sul nome → burst glitch one-shot + swap nome↔`tommiconlai`, colore accent, foto `just_me.jpg`↔`me_alias.jpg` (stesso burst, layer tintati via filter). Hint shimmer periodico sul nome originale.
 - **SiegeCore case study**: hero+chips, intro, **RotationDemo** (danno ruota la carta 90°, griglia 3×3 evidenzia mosse; dirs base W/N/E; FX SVG: slash danno, ring cura, shatter+feTurbulence distruzione), 4 fazioni, processo design, set icone, galleria (board/leader/unit/structure), stato+CTA mailto. Sezione "Anatomia della Carta" rimossa.

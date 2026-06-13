@@ -3,7 +3,6 @@ import { AnimatePresence, motion as Motion } from "framer-motion";
 import HudFrame from "./HudFrame";
 import HudHeader from "./HudHeader";
 import HudNav from "./HudNav";
-import QuickTips from "./QuickTips";
 import useTabKeys from "../hooks/useTabKeys";
 
 // Shell persistente: frame/header/nav fissi, solo l'Outlet anima al cambio rotta.
@@ -12,14 +11,13 @@ export default function Layout() {
   useTabKeys();
 
   // Le route di dettaglio progetto diventano una "finestra PC":
-  // niente nav bassa né QuickTips, header ridotto ai soli window controls.
+  // niente nav bassa, header ridotto ai soli window controls.
   const windowMode = location.pathname.startsWith("/projects");
 
   return (
     <div className={`app-shell ${windowMode ? "app-shell--window" : ""}`}>
       <HudFrame />
       <HudHeader windowMode={windowMode} />
-      {!windowMode && <QuickTips />}
 
       <main className={`hud-content ${windowMode ? "hud-content--window" : ""}`}>
         <AnimatePresence mode="wait">

@@ -187,48 +187,6 @@ ul { list-style: none; }
 }
 .hud-winctl button:hover { color: var(--accent); border-color: var(--accent); }
 
-/* ==================== QUICK TIPS ==================== */
-.quick-tips {
-  position: fixed;
-  top: calc(var(--frame-pad) + var(--header-h) + 12px);
-  right: var(--frame-pad);
-  z-index: 65;
-}
-.quick-tips__toggle {
-  writing-mode: vertical-rl;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  color: var(--txt-dim);
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  padding: 10px 6px;
-  transition: all 0.25s var(--ease-hud);
-}
-.quick-tips__toggle:hover { color: var(--accent); border-color: var(--accent); }
-.quick-tips__panel {
-  position: absolute;
-  top: 0;
-  right: 100%;
-  margin-right: 8px;
-  width: 230px;
-  background: var(--panel-solid);
-  border: 1px solid var(--line-2);
-  padding: var(--sp-md);
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: var(--txt-dim);
-}
-.quick-tips__panel h4 { color: var(--accent); letter-spacing: 0.15em; margin-bottom: var(--sp-sm); font-weight: 400; }
-.quick-tips__panel li { display: flex; gap: 8px; margin-bottom: 6px; align-items: center; }
-.quick-tips kbd {
-  background: var(--bg-2);
-  border: 1px solid var(--line-2);
-  padding: 1px 6px;
-  color: var(--txt);
-  font-size: 0.7rem;
-}
-
 /* ==================== NAV (bottom) ==================== */
 .hud-nav {
   position: fixed;
@@ -978,8 +936,6 @@ ul { list-style: none; }
     white-space: nowrap;
     flex-shrink: 0;
   }
-  .quick-tips { display: none; }
-
   /* intro: hint mouse inutile su touch + collide col readout in alto a sx */
   .intro__tip { display: none; }
   .intro__readout { font-size: 0.62rem; }
