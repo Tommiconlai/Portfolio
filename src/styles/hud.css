@@ -531,6 +531,29 @@ ul { list-style: none; }
   text-transform: uppercase;
 }
 
+/* ── tilt 3D di pagina ──
+   ogni [data-tilt] della intro consuma le CSS vars --rx/--ry settate dal
+   mousemove in Intro.jsx; il bottone START ha già il suo wrapper 3D e usa
+   solo l'attributo, gli altri elementi prendono questa regola */
+.tilt-3d {
+  display: inline-block;
+  transform: perspective(600px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.18s ease-out;
+  will-change: transform;
+}
+
+/* il titolo è una mini-scena 3D: i layer cromatici flottano su piani diversi
+   (parallasse col tilt, stesso trucco della label START a translateZ) */
+.intro__title .glitch {
+  transform-style: preserve-3d;
+}
+.intro__title .glitch__layer--r {
+  transform: translate(-4px, 2px) translateZ(30px);
+}
+.intro__title .glitch__layer--c {
+  transform: translate(4px, -2px) translateZ(14px);
+}
+
 /* ── glitch FX (solo CSS) ── */
 .glitch {
   position: relative;

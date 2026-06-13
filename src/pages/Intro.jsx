@@ -1,31 +1,51 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 
+const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+
 function Intro() {
   const navigate = useNavigate();
-  const startRef = useRef(null);
+  const introRef = useRef(null);
+  const rafRef = useRef(0);
 
-  // tilt 3D del bottone START: rotateX/Y seguono il puntatore (CSS vars
-  // consumate dal wrapper interno, così non confligge con lo scale di framer)
+  // tilt 3D di pagina: ogni elemento [data-tilt] ruota verso il puntatore
+  // rispetto al proprio centro (clamp a ±mezzo elemento = angolo massimo).
+  // CSS vars --rx/--ry consumate da wrapper/regola .tilt-3d, così non
+  // confliggono con i transform di framer; data-tilt = moltiplicatore.
   const tiltMove = (e) => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const el = startRef.current;
-    const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    el.style.setProperty("--ry", `${(x * 18).toFixed(2)}deg`);
-    el.style.setProperty("--rx", `${(-y * 14).toFixed(2)}deg`);
+    const { clientX, clientY } = e;
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0;
+      const els = introRef.current?.querySelectorAll("[data-tilt]") ?? [];
+      els.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        const k = Number(el.dataset.tilt) || 1;
+        const x = clamp((clientX - r.left - r.width / 2) / r.width, -0.5, 0.5);
+        const y = clamp((clientY - r.top - r.height / 2) / r.height, -0.5, 0.5);
+        el.style.setProperty("--ry", `${(x * 18 * k).toFixed(2)}deg`);
+        el.style.setProperty("--rx", `${(-y * 14 * k).toFixed(2)}deg`);
+      });
+    });
   };
   const tiltReset = () => {
-    const el = startRef.current;
-    el.style.setProperty("--ry", "0deg");
-    el.style.setProperty("--rx", "0deg");
+    cancelAnimationFrame(rafRef.current);
+    rafRef.current = 0;
+    introRef.current?.querySelectorAll("[data-tilt]").forEach((el) => {
+      el.style.setProperty("--ry", "0deg");
+      el.style.setProperty("--rx", "0deg");
+    });
   };
+  useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
 
   return (
     <Motion.div
+      ref={introRef}
       className="intro"
+      onMouseMove={tiltMove}
+      onMouseLeave={tiltReset}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.1, filter: "blur(8px)" }}
@@ -36,13 +56,13 @@ function Intro() {
       {/* barra di "tear" orizzontale che spazza lo schermo a intervalli */}
       <span className="intro__tear" aria-hidden="true" />
 
-      <span className="intro__readout intro__readout--tl">
+      <span className="intro__readout intro__readout--tl tilt-3d" data-tilt="0.7">
         SYS_BOOT // OK<br />CHARGE ▰▰▰▰▰ 100%<br />ENERGY_LEAK: NONE
       </span>
-      <span className="intro__tip">
+      <span className="intro__tip tilt-3d" data-tilt="0.7">
         Best experienced with your <b>mouse</b>
       </span>
-      <span className="intro__readout intro__readout--br">
+      <span className="intro__readout intro__readout--br tilt-3d" data-tilt="0.7">
         PORTFOLIO_v.26<br />STATUS: ONLINE
       </span>
 
@@ -52,7 +72,8 @@ function Intro() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        Welcome to
+        {/* wrapper tilt: framer anima il transform del <p>, il tilt vive qui */}
+        <span className="tilt-3d" data-tilt="0.8">Welcome to</span>
       </Motion.p>
       <Motion.h1
         className="intro__title"
@@ -61,7 +82,7 @@ function Intro() {
         transition={{ delay: 0.3, duration: 0.5 }}
       >
         {/* glitch: base + due layer cromatici clip-slice (solo CSS) */}
-        <span className="glitch">
+        <span className="glitch tilt-3d" data-tilt="0.5">
           <span className="glitch__base">My <span className="accent">Portfolio</span></span>
           <span className="glitch__layer glitch__layer--r" aria-hidden="true">My <span className="accent">Portfolio</span></span>
           <span className="glitch__layer glitch__layer--c" aria-hidden="true">My <span className="accent">Portfolio</span></span>
@@ -69,11 +90,9 @@ function Intro() {
       </Motion.h1>
 
       <Motion.button
-        ref={startRef}
         className="intro__start"
+        data-tilt
         onClick={() => navigate("/stats")}
-        onMouseMove={tiltMove}
-        onMouseLeave={tiltReset}
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
@@ -97,7 +116,7 @@ function Intro() {
           <span className="intro__start-label">START</span>
         </span>
       </Motion.button>
-      <p className="intro__hint">Click START to view</p>
+      <p className="intro__hint tilt-3d" data-tilt="0.8">Click START to view</p>
     </Motion.div>
   );
 }

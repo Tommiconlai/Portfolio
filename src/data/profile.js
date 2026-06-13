@@ -109,6 +109,7 @@ export const gallery = {
   ],
   Website: [
     { title: "Portfolio React", role: "Web Dev / Design", tools: "React, Vite, CSS", image: null, link: "https://gabrieletomasso.it", desc: "Questo portfolio: SPA React con UI in stile game-HUD." },
+    { title: "Chillart Studio", role: "Web Dev / Design", tools: "React, Vite, CSS", image: null, link: "https://chillartstudio.it", desc: "Sito vetrina per studio creativo." },
     // TODO [INPUT GABRIELE]: lavori web per clienti.
   ],
 };
