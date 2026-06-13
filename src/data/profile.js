@@ -100,12 +100,10 @@ export const gallery = {
     { title: "Daemons Love and Carnage", role: "Game Dev / Grafica", tools: "Unity, C#, Figma, Adobe", image: dlac, link: "https://eventhorizonschool.itch.io/daemons-love-and-carnage", desc: "Un demone che diventa una spada, tanti cattivoni da picchiare e una sottotrama amorosa." },
   ],
   Graphic: [
-    // TODO [INPUT GABRIELE]: aggiungere immagini reali (loghi, redesign, locandine).
     { title: "Vettorizzazione Loghi", role: "Graphic Design", tools: "Adobe Illustrator", image: null, link: "/projects/vector", desc: "Ridisegno e vettorizzazione di loghi per aziende e organizzazioni." },
   ],
   Website: [
     { title: "Portfolio React", role: "Web Dev / Design", tools: "React, Vite, CSS", image: null, link: "https://gabrieletomasso.it", desc: "Questo portfolio: SPA React con UI in stile game-HUD." },
     { title: "Chillart Studio", role: "Web Dev / Design", tools: "React, Vite, CSS", image: null, link: "https://chillartstudio.it", desc: "Sito vetrina per studio creativo." },
-    // TODO [INPUT GABRIELE]: lavori web per clienti.
   ],
 };

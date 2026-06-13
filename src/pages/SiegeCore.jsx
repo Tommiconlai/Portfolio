@@ -48,7 +48,7 @@ const FACTIONS = [
 ];
 
 const GALLERY = [
-    { src: leaderCard, label: "Carta leader — Yinger / Rofrien" },
+    { src: leaderCard, label: "Carta leader" },
     { src: card, label: "Carta unità" },
     { src: structureCard, label: "Struttura" },
     { src: playerBoard, label: "Plancia" },
@@ -61,11 +61,9 @@ function SiegeCore() {
             <meta name="description" content="SiegeCore: gioco da tavolo strategico in cui la salute di un'unità è il suo orientamento. Case study di game design, identità visiva e iconografia di Gabriele Tomasso." />
             <meta property="og:title" content="SiegeCore — Il danno non uccide. Disorienta." />
             <meta property="og:description" content="Gioco da tavolo strategico 2–4 giocatori: ogni danno ruota la carta di 90° cambiando le sue mosse. Case study di game e graphic design." />
-            {/* TODO(gabriele): aggiungere og:image con l'hero dedicata della pagina (1200×630). */}
 
             {/* ───────── 1. HERO ───────── */}
             <header className="siege-hero">
-                {/* TODO(gabriele): immagine hero dedicata come sfondo (.siege-hero). */}
                 <div className="siege-hero__band" aria-hidden="true" />
                 <div className="siege-hero__content">
                     <h1 className="siege-hero__title">SIEGECORE</h1>
@@ -92,7 +90,7 @@ function SiegeCore() {
                 </p>
             </section>
 
-            {/* ───────── 3. DEMO ROTAZIONE ⭐ ───────── */}
+            {/* ───────── 3. DEMO ROTAZIONE ───────── */}
             <section className="siege-sec siege-demo">
                 <h2>La meccanica di rotazione</h2>
                 <p className="siege-sec__lead">
