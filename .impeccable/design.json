@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-13T00:00:00Z",
+  "title": "Design System: Portfolio Gabriele Tomasso",
+  "extensions": {
+    "colorMeta": {
+      "alert-red": {
+        "role": "primary",
+        "displayName": "Alert Red",
+        "canonical": "#E5232B",
+        "tonalRamp": ["#2a0608", "#4a0c10", "#7a1418", "#a81c22", "#E5232B", "#ee4a51", "#f47e83", "#fbb8bb"]
+      },
+      "signal-cyan": {
+        "role": "secondary",
+        "displayName": "Signal Cyan",
+        "canonical": "#00e5ff",
+        "tonalRamp": ["#00343a", "#00525c", "#007382", "#00a3b8", "#00c8e0", "#00e5ff", "#5cf0ff", "#b3f8ff"]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "Void",
+        "canonical": "#0a0a0d",
+        "tonalRamp": ["#0a0a0d", "#101015", "#16161c", "#222229", "#2a2a32", "#3a3a44", "#8a8a96", "#e8e8ee"]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#14141a",
+        "tonalRamp": ["#0a0a0d", "#101015", "#14141a", "#1c1c24", "#2a2a32", "#3a3a44", "#5a5a66", "#8a8a96"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#e8e8ee",
+        "tonalRamp": ["#1c1c20", "#2a2a32", "#3a3a44", "#5a5a66", "#8a8a96", "#b4b4be", "#d2d2da", "#e8e8ee"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero della Intro, in maiuscolo con glitch. Chakra Petch 700." },
+      "headline": { "displayName": "Headline", "purpose": "Titoli di pagina/header, maiuscolo spaziato." },
+      "body": { "displayName": "Body", "purpose": "Testo umano (bio, descrizioni). Rajdhani, tetto 65–75ch." },
+      "label": { "displayName": "Label / Telemetry", "purpose": "Codici, stati, label di modulo. Share Tech Mono maiuscolo." }
+    },
+    "shadows": [
+      { "name": "glow", "value": "0 0 14px rgba(229,35,43,0.35)", "purpose": "Alone rosso su elementi in focus/hover. Unica ombra di brand." },
+      { "name": "glow-strong", "value": "0 0 18px rgba(229,35,43,0.6)", "purpose": "Hover di CTA ed elementi caldi." },
+      { "name": "lift-3d", "value": "0 8px 14px rgba(0,0,0,0.45), 0 0 14px rgba(229,35,43,0.35)", "purpose": "Solo sui bottoni fisici quando si inclinano in hover." }
+    ],
+    "motion": [
+      { "name": "ease-hud", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Easing standard di tutte le transizioni (out-quint-like)." },
+      { "name": "tilt-snap", "value": "transform 0.18s ease-out", "purpose": "Ritorno del tilt 3D verso il puntatore." },
+      { "name": "page-transition", "value": "0.35s cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Fade+slide+blur dell'Outlet al cambio rotta (framer-motion)." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "HUD Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Modulo base dell'interfaccia: bordo sottile, smusso a 45°, label mono e tick rosso d'angolo.",
+      "html": "<div class=\"ds-panel\"><span class=\"ds-panel__label\">[ PROFILE ]</span><p class=\"ds-panel__body\">Contenuto del modulo HUD.</p></div>",
+      "css": ".ds-panel { position: relative; background: rgba(18,18,24,0.82); border: 1px solid #2a2a32; clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px); padding: 1.25rem; color: #e8e8ee; } .ds-panel::before { content: ''; position: absolute; top: 8px; left: 8px; width: 6px; height: 6px; background: #E5232B; box-shadow: 0 0 8px rgba(229,35,43,0.6); } .ds-panel__label { font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; color: #E5232B; text-transform: uppercase; } .ds-panel__body { font-family: 'Rajdhani', sans-serif; font-size: 1rem; line-height: 1.5; margin-top: 0.4rem; }"
+    },
+    {
+      "name": "Nav Tab (ghost)",
+      "kind": "nav",
+      "refersTo": "tab-ghost",
+      "description": "Tab di navigazione a riposo: bottone fisico che si inclina in hover.",
+      "html": "<button class=\"ds-tab\">02 QUESTS</button>",
+      "css": ".ds-tab { font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #8a8a96; background: #101015; border: 1px solid #2a2a32; border-radius: 0; padding: 10px 18px; transform-origin: 50% 100%; transition: transform 0.2s cubic-bezier(0.22,1,0.36,1), color 0.2s, box-shadow 0.2s; } .ds-tab:hover { color: #e8e8ee; transform: perspective(420px) rotateX(13deg) translateY(-2px); box-shadow: 0 8px 14px rgba(0,0,0,0.45), 0 0 14px rgba(229,35,43,0.35); } .ds-tab:active { transform: perspective(420px) rotateX(20deg) translateY(1px) scale(0.98); } .ds-tab:focus-visible { outline: 2px solid #E5232B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Nav Tab (active)",
+      "kind": "nav",
+      "refersTo": "tab-active",
+      "description": "Tab selezionata: rosso pieno con glow.",
+      "html": "<button class=\"ds-tab-active\">01 STATS</button>",
+      "css": ".ds-tab-active { font-family: 'Share Tech Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; background: #E5232B; border: 1px solid #E5232B; border-radius: 0; padding: 10px 18px; box-shadow: 0 0 16px rgba(229,35,43,0.35); }"
+    },
+    {
+      "name": "CTA Button",
+      "kind": "button",
+      "refersTo": "tab-active",
+      "description": "Call-to-action (mailto, OPEN_PROJECT): bottone fisico 3D bordato di rosso.",
+      "html": "<button class=\"ds-cta\">OPEN_PROJECT <span aria-hidden=\"true\">&rarr;</span></button>",
+      "css": ".ds-cta { font-family: 'Share Tech Mono', monospace; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: #E5232B; background: transparent; border: 1px solid #E5232B; border-radius: 0; padding: 8px 16px; transform-origin: 50% 100%; transition: transform 0.2s cubic-bezier(0.22,1,0.36,1), background 0.2s, color 0.2s, box-shadow 0.2s; } .ds-cta:hover { background: #E5232B; color: #fff; transform: perspective(420px) rotateX(13deg) translateY(-2px); box-shadow: 0 8px 14px rgba(0,0,0,0.45), 0 0 18px rgba(229,35,43,0.6); } .ds-cta:focus-visible { outline: 2px solid #E5232B; outline-offset: 3px; }"
+    },
+    {
+      "name": "Gallery Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Card di progetto della Gallery: immagine + corpo, si solleva in hover.",
+      "html": "<article class=\"ds-gcard\"><div class=\"ds-gcard__img\">SIEGECORE</div><div class=\"ds-gcard__body\"><div class=\"ds-gcard__title\">SiegeCore</div><div class=\"ds-gcard__role\">Game Design</div></div></article>",
+      "css": ".ds-gcard { background: #14141a; border: 1px solid #2a2a32; border-radius: 0; overflow: hidden; transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s; } .ds-gcard:hover { transform: translateY(-4px); box-shadow: 0 0 16px rgba(229,35,43,0.35); } .ds-gcard__img { height: 120px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #7a1418, #101015); font-family: 'Chakra Petch', sans-serif; font-weight: 700; letter-spacing: 0.1em; color: #fff; } .ds-gcard__body { padding: 0.8rem; } .ds-gcard__title { font-family: 'Chakra Petch', sans-serif; font-weight: 700; color: #e8e8ee; } .ds-gcard__role { font-family: 'Share Tech Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; color: #E5232B; }"
+    },
+    {
+      "name": "Modal",
+      "kind": "custom",
+      "refersTo": "modal",
+      "description": "Dettaglio progetto: pannello solido, bordo chiaro, angoli a 90°, si chiude cliccando sul backdrop.",
+      "html": "<div class=\"ds-modal\"><h2 class=\"ds-modal__title\">SiegeCore</h2><div class=\"ds-modal__meta\">GAME DESIGN — ILLUSTRATOR, FIGMA</div><p class=\"ds-modal__body\">Gioco da tavolo in cui la salute di un'unità è il suo orientamento.</p></div>",
+      "css": ".ds-modal { background: #14141a; border: 1px solid #3a3a44; border-radius: 0; padding: 2rem; max-width: 480px; color: #e8e8ee; } .ds-modal__title { font-family: 'Chakra Petch', sans-serif; font-weight: 700; letter-spacing: 0.06em; } .ds-modal__meta { font-family: 'Share Tech Mono', monospace; font-size: 0.74rem; letter-spacing: 0.08em; color: #E5232B; margin: 0.4rem 0 0.8rem; } .ds-modal__body { font-family: 'Rajdhani', sans-serif; line-height: 1.5; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Combat HUD",
+    "overview": "Il sistema è l'overlay di mira di un gioco sci-fi: nero quasi assoluto solcato da una sola frequenza rossa d'allerta, telemetria mono negli angoli, brackets e tick che incorniciano ogni modulo, scanline e glitch cromatici. Niente è decorato: tutto è strumentazione. L'identità rifiuta il portfolio-a-griglia anonimo (Behance/Dribbble), il template SaaS pulito, il pastello e il look istituzionale senza voce. Il rosso è un segnale d'allerta usato con parsimonia, e la sua rarità lo rende forte.",
+    "keyCharacteristics": [
+      "Fondo nero #0a0a0d, una sola frequenza rossa #E5232B, ciano #00e5ff solo come disturbo di segnale.",
+      "Angoli a 90° o smussati a 45° via clip-path; mai raggi arrotondati.",
+      "Tipografia tripla: display condensato (Chakra Petch), body tecnico (Rajdhani), mono per la telemetria (Share Tech Mono).",
+      "Profondità data dal glow rosso, non da ombre morbide. Superfici piatte a riposo.",
+      "Movimento come segnale: glitch, tilt 3D, scanline, tear — sempre con alternativa reduced-motion."
+    ],
+    "rules": [
+      { "name": "The One Frequency Rule", "body": "C'è un solo colore vivo nel sistema: il rosso. Se una schermata ha bisogno di un secondo accento, la risposta è peso, dimensione o mono — non un'altra tinta. Il ciano è rumore, non colore.", "section": "colors" },
+      { "name": "The Glow-Not-Gray Rule", "body": "Testo grigio su fondo rosso è proibito (si slava). Su superfici colorate usa una tinta più scura dello stesso rosso o una trasparenza dell'inchiostro, mai ink-dim piatto.", "section": "colors" },
+      { "name": "The Telemetry Rule", "body": "Tutto ciò che è macchina (codici, date, stati, breadcrumb, label di modulo) è in Share Tech Mono maiuscolo spaziato. Tutto ciò che è umano è in Rajdhani.", "section": "typography" },
+      { "name": "The Flat-Until-Touched Rule", "body": "Le superfici sono piatte. Profondità e ombra compaiono solo come risposta a uno stato (hover, focus, tilt). Un'ombra a riposo è un bug.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do tenere il rosso #E5232B sotto il ~15% della superficie: è un segnale d'allerta, non un colore di sfondo.",
+      "Do usare spigoli a 90° o smussi a 45° (clip-path) per ogni contenitore.",
+      "Do mettere in Share Tech Mono maiuscolo tutto ciò che è telemetria (codici, date, stati, label di modulo).",
+      "Do dare profondità con il glow rosso e il tilt 3D, lasciando le superfici piatte a riposo.",
+      "Do fornire un'alternativa prefers-reduced-motion per ogni FX (glitch, tilt, scanline, tear).",
+      "Do garantire contrasto WCAG AA: attenzione a ink-dim (#8a8a96) su nero per testo piccolo."
+    ],
+    "donts": [
+      "Don't trasformare il portfolio in una griglia Behance/Dribbble di card identiche e anonime: l'interfaccia è parte del lavoro.",
+      "Don't introdurre un secondo colore di brand. Il ciano è solo glitch; tutto il resto è rosso, nero, grigio.",
+      "Don't usare border-radius arrotondati: rompono l'identità HUD.",
+      "Don't mettere ombre morbide ambientali a riposo; la profondità è una risposta a uno stato.",
+      "Don't scrivere testo grigio su fondo rosso (si slava): usa un rosso più scuro o una trasparenza dell'inchiostro.",
+      "Don't scadere nel template SaaS pulito, nel pastello o nel look istituzionale senza voce."
+    ]
+  }
+}
