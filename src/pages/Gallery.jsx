@@ -87,9 +87,6 @@ function Gallery() {
               transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
               onClick={(e) => e.stopPropagation()}
             >
-              <button className="gmodal__close" onClick={() => setActive(null)} aria-label="Chiudi">
-                ×
-              </button>
               {active.image && <img className="gmodal__img" src={active.image} alt={active.title} />}
               <h2>{active.title}</h2>
               <div className="gmodal__meta">{active.role} — {active.tools}</div>
