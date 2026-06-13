@@ -6,6 +6,9 @@ import lbwy from "../assets/LBWY.png";
 import cube from "../assets/CubeInvaders.png";
 import dlac from "../assets/DLnC.png";
 import siegecore from "../assets/siegecore_logo.png";
+import ideacasa from "../assets/ideacasa_logo.png";
+import pro_danza from "../assets/progetto_danza_logo.png";
+import velvet from "../assets/velvetsin_logo.png";
 
 export const identity = {
   name: 'Gabriele Tomasso',
@@ -100,7 +103,9 @@ export const gallery = {
     { title: "Daemons Love and Carnage", role: "Game Dev / Grafica", tools: "Unity, C#, Figma, Adobe", image: dlac, link: "https://eventhorizonschool.itch.io/daemons-love-and-carnage", desc: "Un demone che diventa una spada, tanti cattivoni da picchiare e una sottotrama amorosa." },
   ],
   Graphic: [
-    { title: "Vettorizzazione Loghi", role: "Graphic Design", tools: "Adobe Illustrator", image: null, link: "/projects/vector", desc: "Ridisegno e vettorizzazione di loghi per aziende e organizzazioni." },
+    { title: "Vettorizzazione Logo Ideacasa", role: "Graphic Design", tools: "Adobe Illustrator, Photoshop", image: ideacasa, link: "/projects/vector", desc: "Ridisegno e vettorizzazione del logo, partendo da una immagine PNG." },
+    { title: "Vettorizzazione Logo Progetto Danza", role: "Graphic Design", tools: "Adobe Illustrator, Photoshop", image: pro_danza, link: "/projects/vector", desc: "Ridisegno e vettorizzazione del logo, partendo da una immagine PNG." },
+    { title: "Vettorizzazione Logo Velvet Sin", role: "Graphic Design", tools: "Adobe Illustrator", image: velvet, link: "/projects/vector", desc: "Ridisegno e vettorizzazione del logo, partendo da una immagine PNG." },
   ],
   Website: [
     { title: "Portfolio React", role: "Web Dev / Design", tools: "React, Vite, CSS", image: null, link: "https://gabrieletomasso.it", desc: "Questo portfolio: SPA React con UI in stile game-HUD." },
