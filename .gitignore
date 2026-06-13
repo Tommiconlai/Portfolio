@@ -4,6 +4,10 @@ node_modules/
 # Claude Code
 .claude/
 
+# Agent skills (installed via `npx skills add`, rigenerabili)
+.agents/
+skills-lock.json
+
 # Local env
 .env
 .env.local
