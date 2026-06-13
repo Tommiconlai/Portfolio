@@ -10,6 +10,7 @@
   --txt:        #e8e8ee;
   --txt-dim:    #8a8a96;
   --accent:     #E5232B;
+  --accent-text:#ff4047; /* rosso piu chiaro per testo piccolo (AA >=4.5:1 su dark); --accent resta per fill/bordi/glow */
   --accent-dim: #7a1418;
   --glow:       rgba(229, 35, 43, 0.35);
   --glow-strong:rgba(229, 35, 43, 0.6);

@@ -43,7 +43,7 @@ function Stats() {
     <>
       <title>Stats — Gabriele Tomasso</title>
       <meta name="description" content="Profilo, bio, skills e contatti di Gabriele Tomasso: design, sviluppo, game e soft skills." />
-      <p className="page-head">// PERSONAL_INFORMATION</p>
+      <p className="page-head">// PERSONAL_INFORMATION · {identity.location}</p>
 
       <Motion.div className="stats-grid" variants={container} initial="hidden" animate="show">
         <Panel label="PROFILE" className="profile-card">

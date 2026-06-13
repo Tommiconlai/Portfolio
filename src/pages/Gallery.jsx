@@ -24,7 +24,7 @@ function Gallery() {
     <>
       <title>Gallery — Gabriele Tomasso</title>
       <meta name="description" content="Progetti di Gabriele Tomasso: game, graphic e website." />
-      <p className="page-head">// PROJECT_ARCHIVE</p>
+      <p className="page-head">// PROJECT_ARCHIVE · {items.length} FILES</p>
 
       <div className="gallery-tabs">
         {TABS.map((t) => (

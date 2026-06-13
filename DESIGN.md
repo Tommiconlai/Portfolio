@@ -10,6 +10,7 @@ colors:
   ink: "#e8e8ee"
   ink-dim: "#8a8a96"
   alert-red: "#E5232B"
+  alert-red-text: "#ff4047"
   alert-red-deep: "#7a1418"
   signal-cyan: "#00e5ff"
 typography:
@@ -100,6 +101,7 @@ Monocromia fredda e scura interrotta da un unico rosso d'emergenza; il ciano esi
 
 ### Primary
 - **Alert Red** (`#E5232B`): la frequenza del sistema. Tab attiva, bordi in focus, tick dei pannelli, CTA, glow. Usata su ≤15% di superficie: è un segnale, non una tinta di sfondo.
+- **Alert Red Text** (`#ff4047`): variante più chiara **solo per testo piccolo** rosso su dark (label mono, kicker, ruoli). Garantisce AA ≥4.5:1 dove `#E5232B` scende a ~4.1:1. Non usarla per fill/bordi/glow — lì resta `#E5232B`.
 - **Alert Red Deep** (`#7a1418`): rosso spento per fill di stato, gradienti di fallback, hover affondati.
 
 ### Secondary

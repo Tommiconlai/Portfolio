@@ -12,7 +12,7 @@ function Quests() {
     <>
       <title>Quests — Gabriele Tomasso</title>
       <meta name="description" content="Esperienze lavorative di Gabriele Tomasso come missioni." />
-      <p className="page-head">// MISSION_LOG</p>
+      <p className="page-head">// MISSION_LOG · {quests.length} ENTRIES</p>
 
       <Motion.div className="quest-list" variants={container} initial="hidden" animate="show">
         {quests.map((q, i) => (

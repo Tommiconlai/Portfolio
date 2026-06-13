@@ -16,9 +16,16 @@ function HudHeader({ windowMode = false }) {
       <header className="hud-header hud-header--window">
         <span className="hud-header__winname">{winTitle}</span>
         <div className="hud-winctl">
-          <button aria-label="Indietro" onClick={() => navigate(-1)}>_</button>
-          <button aria-label="Massimizza" tabIndex={-1}>□</button>
-          <button aria-label="Chiudi (torna alla hero)" onClick={() => navigate("/")}>×</button>
+          <button aria-label="Indietro" title="Indietro" onClick={() => navigate(-1)}>_</button>
+          <button aria-label="Massimizza" title="Massimizza" tabIndex={-1}>□</button>
+          <button
+            className="hud-winctl__close"
+            aria-label="Chiudi e torna alla home"
+            title="Chiudi — torna alla home (Esc)"
+            onClick={() => navigate("/")}
+          >
+            ×
+          </button>
         </div>
       </header>
     );

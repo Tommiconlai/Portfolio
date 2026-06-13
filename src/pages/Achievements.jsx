@@ -12,7 +12,7 @@ function Achievements() {
     <>
       <title>Achievements — Gabriele Tomasso</title>
       <meta name="description" content="Formazione di Gabriele Tomasso come trofei sbloccati." />
-      <p className="page-head">// UNLOCKED_BADGES</p>
+      <p className="page-head">// UNLOCKED_BADGES · {achievements.length} CLEARED</p>
 
       <Motion.div className="quest-list" variants={container} initial="hidden" animate="show">
         {achievements.map((a, i) => (
