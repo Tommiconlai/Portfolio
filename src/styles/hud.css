@@ -465,11 +465,28 @@ ul { list-style: none; }
   transition: filter 0.25s var(--ease-hud);
 }
 
+.intro__start {
+  perspective: 520px;
+}
+
+/* wrapper 3D: ruota seguendo il puntatore (CSS vars settate in JS) */
+.intro__start-3d {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 0.18s ease-out;
+}
+
 .intro__start-svg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  transform: translateZ(0);
 }
 
 .start-outline {
@@ -493,6 +510,8 @@ ul { list-style: none; }
 .intro__start-label {
   position: relative;
   z-index: 1;
+  /* la scritta "galleggia" su un piano più vicino: parallasse col tilt */
+  transform: translateZ(30px);
 }
 
 .intro__start:hover {
@@ -893,6 +912,36 @@ ul { list-style: none; }
   color: var(--accent); border: 1px solid var(--accent); padding: 8px 16px;
 }
 .gmodal__link:hover { background: var(--accent); color: #fff; }
+
+/* ==================== 3D BUTTONS ==================== */
+/* effetto "tasto fisico": su hover il bottone si inclina all'indietro
+   (cerniera sul bordo basso), su :active affonda */
+.hud-tab,
+.gallery-tab,
+.rotdemo__btn,
+.btn-cta,
+.hud-header__back {
+  transform-origin: 50% 100%;
+}
+
+.hud-tab:hover,
+.gallery-tab:hover,
+.rotdemo__btn:hover:not(:disabled),
+.btn-cta:hover,
+.hud-header__back:hover {
+  transform: perspective(420px) rotateX(13deg) translateY(-2px);
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.45), 0 0 14px var(--glow);
+}
+
+.hud-tab:active,
+.gallery-tab:active,
+.rotdemo__btn:active:not(:disabled),
+.btn-cta:active,
+.hud-header__back:active {
+  transform: perspective(420px) rotateX(20deg) translateY(1px) scale(0.98);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 0 10px var(--glow);
+  filter: brightness(0.92);
+}
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 900px) {

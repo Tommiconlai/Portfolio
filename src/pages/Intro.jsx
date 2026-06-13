@@ -1,8 +1,27 @@
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
 
 function Intro() {
   const navigate = useNavigate();
+  const startRef = useRef(null);
+
+  // tilt 3D del bottone START: rotateX/Y seguono il puntatore (CSS vars
+  // consumate dal wrapper interno, così non confligge con lo scale di framer)
+  const tiltMove = (e) => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = startRef.current;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    el.style.setProperty("--ry", `${(x * 18).toFixed(2)}deg`);
+    el.style.setProperty("--rx", `${(-y * 14).toFixed(2)}deg`);
+  };
+  const tiltReset = () => {
+    const el = startRef.current;
+    el.style.setProperty("--ry", "0deg");
+    el.style.setProperty("--rx", "0deg");
+  };
 
   return (
     <Motion.div
@@ -50,27 +69,33 @@ function Intro() {
       </Motion.h1>
 
       <Motion.button
+        ref={startRef}
         className="intro__start"
         onClick={() => navigate("/stats")}
+        onMouseMove={tiltMove}
+        onMouseLeave={tiltReset}
         initial={{ opacity: 0, y: 14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
         whileHover={{ scale: 1.04 }}
         whileTap={{ scale: 0.97 }}
       >
-        {/* sagoma sci-fi: outline trapezio + pannello interno + ali sui lati */}
-        <svg
-          className="intro__start-svg"
-          viewBox="0 0 400 100"
-          preserveAspectRatio="none"
-          aria-hidden="true"
-        >
-          <path className="start-outline" d="M16 6 L384 6 L318 88 L82 88 Z" />
-          <path className="start-fill" d="M48 16 L352 16 L302 78 L98 78 Z" />
-          <path className="start-wing" d="M29 20 L43 20 L95 84 L81 84 Z" />
-          <path className="start-wing" d="M371 20 L357 20 L305 84 L319 84 Z" />
-        </svg>
-        <span className="intro__start-label">START</span>
+        {/* wrapper 3D: tilt dal puntatore, label su un piano Z più alto */}
+        <span className="intro__start-3d">
+          {/* sagoma sci-fi: outline trapezio + pannello interno + ali sui lati */}
+          <svg
+            className="intro__start-svg"
+            viewBox="0 0 400 100"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+          >
+            <path className="start-outline" d="M16 6 L384 6 L318 88 L82 88 Z" />
+            <path className="start-fill" d="M48 16 L352 16 L302 78 L98 78 Z" />
+            <path className="start-wing" d="M29 20 L43 20 L95 84 L81 84 Z" />
+            <path className="start-wing" d="M371 20 L357 20 L305 84 L319 84 Z" />
+          </svg>
+          <span className="intro__start-label">START</span>
+        </span>
       </Motion.button>
       <p className="intro__hint">Click START to view</p>
     </Motion.div>
