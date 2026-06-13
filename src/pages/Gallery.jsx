@@ -56,7 +56,10 @@ function Gallery() {
             {p.image ? (
               <img className="gcard__img" src={p.image} alt={p.title} loading="lazy" decoding="async" />
             ) : (
-              <div className="gcard__img-fallback">{p.title}</div>
+              <div className="gcard__img-fallback" aria-hidden="true">
+                <span className="gcard__nosig">NO_SIGNAL</span>
+                <span className="gcard__nosig-title">{p.title}</span>
+              </div>
             )}
             <div className="gcard__body">
               <div className="gcard__title">{p.title}</div>

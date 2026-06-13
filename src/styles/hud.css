@@ -850,11 +850,36 @@ ul { list-style: none; }
 }
 .gcard:hover { border-color: var(--accent); box-shadow: 0 0 22px var(--glow); transform: translateY(-4px); }
 .gcard__img { width: 100%; height: 170px; object-fit: cover; display: block; }
+/* nessuna immagine = stato HUD "feed offline" voluto, non un blocco colorato:
+   pannello con scanline, brackets d'angolo e label di telemetria */
 .gcard__img-fallback {
+  position: relative;
   width: 100%; height: 170px;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--accent-dim), var(--bg-2));
-  font-family: var(--font-display); font-size: 1.3rem; letter-spacing: 0.1em; color: #fff; text-align: center; padding: var(--sp-sm);
+  display: flex; flex-direction: column; gap: 6px;
+  align-items: center; justify-content: center;
+  text-align: center; padding: var(--sp-sm);
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 3px, rgba(255, 255, 255, 0.025) 3px 4px),
+    radial-gradient(ellipse 80% 70% at 50% 50%, rgba(229, 35, 43, 0.10), transparent 70%),
+    var(--bg-2);
+}
+/* brackets sugli angoli tl/br = stesso motivo del clip-cut dei pannelli */
+.gcard__img-fallback::before,
+.gcard__img-fallback::after {
+  content: ''; position: absolute; width: 14px; height: 14px;
+  border: 1px solid var(--line-2);
+}
+.gcard__img-fallback::before { top: 8px; left: 8px; border-right: 0; border-bottom: 0; }
+.gcard__img-fallback::after { bottom: 8px; right: 8px; border-left: 0; border-top: 0; }
+.gcard__nosig {
+  font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.2em;
+  color: var(--accent-text); text-transform: uppercase;
+}
+.gcard__nosig::before { content: '// '; }
+.gcard__nosig-title {
+  font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  letter-spacing: 0.06em; color: var(--txt-dim);
 }
 .gcard__body { padding: var(--sp-sm); }
 .gcard__title { font-family: var(--font-display); font-weight: 700; letter-spacing: 0.04em; }
