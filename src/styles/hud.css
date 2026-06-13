@@ -763,6 +763,31 @@ ul { list-style: none; }
 
 .contacts-row { display: flex; flex-wrap: wrap; gap: var(--sp-md); margin-top: var(--sp-sm); }
 
+/* CTA primaria di contatto: l'azione-obiettivo della pagina, rosso pieno + glow */
+.profile-card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  align-self: stretch;
+  margin-top: var(--sp-xs);
+  padding: 12px 18px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  clip-path: var(--clip-cut);
+  box-shadow: 0 0 16px var(--glow);
+  transition: background 0.2s var(--ease-hud), box-shadow 0.2s var(--ease-hud),
+    transform 0.2s var(--ease-hud), filter 0.2s var(--ease-hud);
+}
+/* hover/active (inclinazione fisica) ereditati dal gruppo "3D BUTTONS" */
+.profile-card__cta:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
 /* contatti compatti dentro la profile card */
 .contacts-row--compact { gap: var(--sp-sm); }
 .contacts-row--compact .hex__shape { width: 48px; height: 48px; }
@@ -867,14 +892,16 @@ ul { list-style: none; }
 .hud-tab,
 .gallery-tab,
 .rotdemo__btn,
-.btn-cta {
+.btn-cta,
+.profile-card__cta {
   transform-origin: 50% 100%;
 }
 
 .hud-tab:hover,
 .gallery-tab:hover,
 .rotdemo__btn:hover:not(:disabled),
-.btn-cta:hover {
+.btn-cta:hover,
+.profile-card__cta:hover {
   transform: perspective(420px) rotateX(13deg) translateY(-2px);
   box-shadow: 0 8px 14px rgba(0, 0, 0, 0.45), 0 0 14px var(--glow);
 }
@@ -882,7 +909,8 @@ ul { list-style: none; }
 .hud-tab:active,
 .gallery-tab:active,
 .rotdemo__btn:active:not(:disabled),
-.btn-cta:active {
+.btn-cta:active,
+.profile-card__cta:active {
   transform: perspective(420px) rotateX(20deg) translateY(1px) scale(0.98);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5), 0 0 10px var(--glow);
   filter: brightness(0.92);

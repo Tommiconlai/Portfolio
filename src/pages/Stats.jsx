@@ -13,8 +13,12 @@ const container = {
   show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
 
-// Nel profilo compaiono tutti i contatti tranne il portfolio (è questo sito).
-const PROFILE_CONTACTS = contacts.filter((c) => c.label !== "Portfolio");
+// CTA primaria = email; nel profilo le icone restano come quick-link secondari
+// (Portfolio escluso perché è questo sito, Email perché promossa a CTA).
+const PRIMARY_CONTACT = contacts.find((c) => c.label === "Email");
+const PROFILE_CONTACTS = contacts.filter(
+  (c) => c.label !== "Portfolio" && c.label !== "Email"
+);
 
 function Stats() {
   // click sul nome -> burst glitch + swap nome/alias
@@ -44,7 +48,7 @@ function Stats() {
       <Motion.div className="stats-grid" variants={container} initial="hidden" animate="show">
         <Panel label="PROFILE" className="profile-card">
           <div className={`profile-card__photo-wrap ${glitchCls}`}>
-            <img className="profile-card__photo glitch__base" src={displayPhoto} alt={identity.name} />
+            <img className="profile-card__photo glitch__base" src={displayPhoto} alt={identity.name} decoding="async" />
             <img className="profile-card__photo glitch__layer glitch__layer--r" src={displayPhoto} alt="" aria-hidden="true" />
             <img className="profile-card__photo glitch__layer glitch__layer--c" src={displayPhoto} alt="" aria-hidden="true" />
           </div>
@@ -62,6 +66,12 @@ function Stats() {
           </button>
           <span className="profile-card__roles">{identity.roles.join(" · ")}</span>
           <span className="profile-card__level">LEVEL <b>{identity.level}</b></span>
+          {PRIMARY_CONTACT && (
+            <a className="profile-card__cta" href={PRIMARY_CONTACT.href}>
+              <Mail size={18} aria-hidden="true" />
+              <span>CONTATTAMI</span>
+            </a>
+          )}
           <div className="contacts-row contacts-row--compact">
             {PROFILE_CONTACTS.map((c) => {
               const Icon = ICONS[c.icon] || Globe;
