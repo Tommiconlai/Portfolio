@@ -81,6 +81,7 @@ src/
 ## Gotchas
 
 - **Cache vite stale dopo operazioni git** (checkout/revert/cherry-pick): moduli vecchi serviti → `rm -rf node_modules/.vite` + riavvio dev server.
+- **`vite.config.js` onora `process.env.PORT`** (fallback alla porta default se non settata): serve ai tool che assegnano la porta (es. preview con `autoPort`). Nessun impatto su `npm run dev`/`build`/`deploy`.
 - `gh` CLI **non installato** → niente PR da terminale (installare con `winget install GitHub.cli`).
 - `lucide-react` non ha icone brand → GitHub/LinkedIn ora usano `react-icons` (`FaGithub`/`FaLinkedinIn` da `react-icons/fa6`, glifi reali riconoscibili) dentro `HexIcon` in `Stats.jsx`; `Mail`/`Globe` restano lucide per coerenza di tratto.
 - `dist/` è tracciato nel repo (deploy gh-pages); `node_modules` parzialmente tracciato da prima del .gitignore — non committare il churn. `npm install` può sporcare `node_modules/.package-lock.json` (tracciato): ripristinarlo con `git checkout -- node_modules/.package-lock.json`.
