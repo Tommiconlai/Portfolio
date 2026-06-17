@@ -246,7 +246,12 @@ ul { list-style: none; }
            calc(var(--frame-pad) + var(--nav-h) + var(--sp-lg));
   max-width: 1500px;
   margin: 0 auto;
+  /* le pagine in transizione (entrante + uscente) si sovrappongono nella stessa
+     cella invece di impilarsi in verticale -> niente salto di altezza */
+  display: grid;
+  grid-template-columns: 1fr;
 }
+.hud-content > * { grid-area: 1 / 1; min-width: 0; }
 
 /* window mode: niente nav bassa -> meno padding sotto */
 .hud-content--window {

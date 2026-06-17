@@ -20,7 +20,7 @@ export default function Layout() {
       <HudHeader windowMode={windowMode} />
 
       <main className={`hud-content ${windowMode ? "hud-content--window" : ""}`}>
-        <AnimatePresence mode="wait">
+        <AnimatePresence>
           <Motion.div
             key={location.pathname}
             initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
