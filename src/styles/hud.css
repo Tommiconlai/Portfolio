@@ -290,31 +290,26 @@ ul { list-style: none; }
 .panel__label::before { content: '[ '; }
 .panel__label::after  { content: ' ]'; }
 
-/* sheen rosso che attraversa il pannello durante l'entrata (vedi Panel.jsx).
-   Box che si auto-clippa: il bar resta dentro i bordi a prescindere dall'overflow del .panel */
-.panel__sweep {
+/* entrata: quadrato rosso che cresce fino a riempire il pannello (vedi Panel.jsx).
+   I contenuti restano nascosti finche' il quadrato non e' cresciuto (--rv). */
+.panel--grow > :not(.panel__growclip) { opacity: var(--rv, 1); }
+.panel__growclip {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  overflow: hidden; /* clippa il quadrato in espansione ai bordi del pannello */
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
-.panel__sweep-bar {
+.panel__grow {
   position: absolute;
-  top: -20%;
+  top: 0;
   left: 0;
-  width: 45%;
-  height: 140%;
-  transform: skewX(-18deg);
-  background: linear-gradient(
-    100deg,
-    transparent 0%,
-    rgba(229, 35, 43, 0.05) 35%,
-    rgba(255, 64, 71, 0.22) 50%,
-    rgba(229, 35, 43, 0.05) 65%,
-    transparent 100%
-  );
-  will-change: transform;
+  width: 12px;
+  height: 12px;
+  transform-origin: top left;
+  background: var(--accent);
+  box-shadow: 0 0 16px var(--glow);
+  will-change: transform, opacity;
 }
 
 .panel h2, .panel h3 {
@@ -1075,6 +1070,6 @@ ul { list-style: none; }
 /* ==================== REDUCED MOTION ==================== */
 @media (prefers-reduced-motion: reduce) {
   .hud-scanline { animation: none; display: none; }
-  .glitch__layer, .intro__tear, .panel__sweep { display: none; }
+  .glitch__layer, .intro__tear { display: none; }
   * { animation-duration: 0.001ms !important; transition-duration: 0.05ms !important; }
 }
