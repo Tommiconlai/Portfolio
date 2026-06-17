@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 
+# Build output (gh-pages rebuilds from dist/ each deploy)
+dist/
+
 # Claude Code
 .claude/
 
