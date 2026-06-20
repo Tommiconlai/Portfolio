@@ -1,10 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion as Motion } from "framer-motion";
+import { stagger } from "../anim";
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
-};
+const container = stagger(0.08, 0.05);
 const item = {
   hidden: { opacity: 0, y: 14 },
   show: { opacity: 1, y: 0 },

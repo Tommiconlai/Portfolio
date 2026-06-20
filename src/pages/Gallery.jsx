@@ -2,14 +2,12 @@ import { useState, useRef, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion as Motion } from "framer-motion";
+import { stagger } from "../anim";
 import { gallery } from "../data/profile";
 
 const TABS = ["Game", "Graphic", "Website"];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.07 } },
-};
+const container = stagger(0.07);
 const item = {
   hidden: { opacity: 0, y: 18, scale: 0.97, filter: "blur(6px)" },
   show: {

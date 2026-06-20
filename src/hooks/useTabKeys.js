@@ -14,8 +14,6 @@ export default function useTabKeys() {
 
   useEffect(() => {
     const onKey = (e) => {
-      const tag = e.target?.tagName;
-      if (tag === "INPUT" || tag === "TEXTAREA") return;
       if (e.key === "Escape") navigate("/");
     };
     window.addEventListener("keydown", onKey);

@@ -89,9 +89,9 @@ export const quests = [
 ];
 
 export const achievements = [
-  { title: "IFTS Developer", org: "ITS Angelo Rizzoli - Milano", date: "2024 - 2025", icon: "Code2" },
-  { title: "Corso Game Design", org: "Event Horizon School - Milano", date: "2019 - 2022", icon: "Gamepad2" },
-  { title: "Diploma Liceo Scientifico Biologico", org: "Cinisello Balsamo", date: "2009 - 2014", icon: "GraduationCap" },
+  { title: "IFTS Developer", org: "ITS Angelo Rizzoli - Milano", date: "2024 - 2025" },
+  { title: "Corso Game Design", org: "Event Horizon School - Milano", date: "2019 - 2022" },
+  { title: "Diploma Liceo Scientifico Biologico", org: "Cinisello Balsamo", date: "2009 - 2014" },
 ];
 
 // gallery: tab = Game | Graphic | Website

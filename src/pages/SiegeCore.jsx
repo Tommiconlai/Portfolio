@@ -1,4 +1,3 @@
-import IconItem from "../components/IconItem";
 import RotationDemo from "../components/RotationDemo";
 import * as siegecore from "../assets/siegecore";
 import "../styles/siegecore.css";
@@ -158,7 +157,10 @@ function SiegeCore() {
                 <h2>Set di iconografia</h2>
                 <div className="card-icons-grid">
                     {EFFECT_ICONS.map((ic) => (
-                        <IconItem key={ic.label} src={ic.src} alt={ic.label} label={ic.label} />
+                        <div className="icon-item" key={ic.label}>
+                            <img src={ic.src} alt={ic.label} />
+                            <p>{ic.label}</p>
+                        </div>
                     ))}
                 </div>
             </section>

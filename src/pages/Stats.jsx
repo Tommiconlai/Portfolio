@@ -1,19 +1,16 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { motion as Motion } from "framer-motion";
 import { Mail, Globe } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import Panel from "../components/Panel";
-import HexIcon from "../components/HexIcon";
+import { stagger } from "../anim";
 import { identity, contacts, skills, bio } from "../data/profile";
 
 // lucide non ha icone brand: GitHub/LinkedIn arrivano da react-icons (glifi
 // reali, riconoscibili); Mail/Globe restano lucide per coerenza di tratto.
 const ICONS = { Mail, Github: FaGithub, Linkedin: FaLinkedinIn, Globe };
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
-};
+const container = stagger(0.08, 0.05);
 
 // CTA primaria = email; nel profilo le icone restano come quick-link secondari
 // (Portfolio escluso perché è questo sito, Email perché promossa a CTA).
@@ -26,15 +23,12 @@ function Stats() {
   // click sul nome -> burst glitch + swap nome/alias
   const [showAlias, setShowAlias] = useState(false);
   const [glitching, setGlitching] = useState(false);
-  const timers = useRef([]);
 
   const toggleName = () => {
     if (glitching) return;
     setGlitching(true);
-    timers.current = [
-      setTimeout(() => setShowAlias((a) => !a), 180),
-      setTimeout(() => setGlitching(false), 520),
-    ];
+    setTimeout(() => setShowAlias((a) => !a), 180);
+    setTimeout(() => setGlitching(false), 520);
   };
 
   const displayName = showAlias ? identity.alias : identity.name;
@@ -86,9 +80,10 @@ function Stats() {
                   rel={ext ? "noopener noreferrer" : undefined}
                   aria-label={c.label}
                 >
-                  <HexIcon label={c.label}>
-                    <Icon size={20} />
-                  </HexIcon>
+                  <div className="hex">
+                    <span className="hex__shape"><Icon size={20} /></span>
+                    <span className="hex__label">{c.label}</span>
+                  </div>
                 </a>
               );
             })}

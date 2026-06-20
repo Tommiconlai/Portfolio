@@ -1,11 +1,9 @@
 import { motion as Motion } from "framer-motion";
 import Panel from "../components/Panel";
+import { stagger } from "../anim";
 import { quests } from "../data/profile";
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.09 } },
-};
+const container = stagger(0.09);
 
 function Quests() {
   return (
