@@ -66,6 +66,16 @@ export const quests = [
     ],
   },
   {
+    title: "Docente Corso Base Unity",
+    org: "Biblioteca Il Pertini (CSBNO) - Cinisello Balsamo",
+    date: "Gen 2023 - Feb 2023",
+    status: "done",
+    bullets: [
+      "Corso introduttivo a Unity per principianti",
+      "Progettazione e svolgimento delle lezioni",
+    ],
+  },
+  {
     title: "Junior Graphic Designer",
     org: "Il Pertini Centro Culturale - Cinisello Balsamo",
     date: "Mag 2023 - Mag 2024",
